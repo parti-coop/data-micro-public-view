@@ -19,7 +19,36 @@ import '../../styles/app.css'
 *
 */
 const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
-    const site = data.allGhostSettings.edges[0].node
+    // const site = data.allGhostSettings.edges[0].node
+    const site = {
+        "title": "공공의창 2021",
+        "description": "한눈에 보는 한국의 미디어",
+        "logo": "https://static.ghost.org/v1.0.0/images/ghost-logo.svg",
+        "icon": "https://gatsby.ghost.io/content/images/2019/01/favicon.png",
+        "cover_image": "https://images.unsplash.com/photo-1628882191768-7dc4d8b609b7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80",
+        "facebook": "collectpublicview",
+        "twitter": "@publicviewkr",
+        "lang": "ko",
+        "timezone": "UTC+9",
+        "codeinjection_head": null,
+        "codeinjection_foot": null,
+        "codeinjection_styles": "",
+        "navigation": [
+            {
+                "label": "Home",
+                "url": "/"
+            },
+            {
+                "label": "Hello",
+                "url": "/hello"
+            },
+            {
+                "label": "Help",
+                "url": "http://hannun.or.kr/2021/"
+            }
+        ]
+    }
+
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
 

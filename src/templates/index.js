@@ -14,7 +14,105 @@ import { MetaData } from '../components/common/meta'
 *
 */
 const Index = ({ data, location, pageContext }) => {
-    const posts = data.allGhostPost.edges
+    // const posts = data.allGhostPost.edges
+    const posts = [
+        {
+            "node": {
+                "title": "1 언론산업 사업체와 매체 수 (2014~2019)",
+                "slug": "hello",
+                "featured": false,
+                "feature_image": "https://gatsby.ghost.io/content/images/2019/01/ghost-headless-feature-image.png",
+                "excerpt": "2019년 기준 언론산업 사업체 수는 전년보다 3.1% 줄어, 계속 증가세를 이어오던 수치가 감소세로 방향을 바꿨습니다.",
+                "visibility": "public",
+                "primary_author": {
+                    "name": "공공",
+                    "profile_image": "https://static.ghost.org/v2.0.0/images/ghost.png",
+                },
+                "tags": ['언론산업 실태조사'],
+                "reading_time": 2
+            }
+        },
+        {
+            "node": {
+                "title": "2 언론산업 사업체와 매체 수 (2014~2019)",
+                "slug": "hello",
+                "featured": false,
+                "feature_image": "https://gatsby.ghost.io/content/images/2019/01/ghost-headless-feature-image.png",
+                "excerpt": "2019년 기준 언론산업 사업체 수는 전년보다 3.1% 줄어, 계속 증가세를 이어오던 수치가 감소세로 방향을 바꿨습니다.",
+                "visibility": "public",
+                "primary_author": {
+                    "name": "공공",
+                    "profile_image": "https://static.ghost.org/v2.0.0/images/ghost.png",
+                },
+                "tags": ['언론산업 실태조사'],
+                "reading_time": 2
+            }
+        },
+        {
+            "node": {
+                "title": "3 언론산업 사업체와 매체 수 (2014~2019)",
+                "slug": "hello",
+                "featured": false,
+                "feature_image": "https://gatsby.ghost.io/content/images/2019/01/ghost-headless-feature-image.png",
+                "excerpt": "2019년 기준 언론산업 사업체 수는 전년보다 3.1% 줄어, 계속 증가세를 이어오던 수치가 감소세로 방향을 바꿨습니다.",
+                "visibility": "public",
+                "primary_author": {
+                    "name": "공공",
+                    "profile_image": "https://static.ghost.org/v2.0.0/images/ghost.png",
+                },
+                "tags": ['언론산업 실태조사'],
+                "reading_time": 2
+            }
+        },
+        {
+            "node": {
+                "title": "4 언론산업 사업체와 매체 수 (2014~2019)",
+                "slug": "hello",
+                "featured": false,
+                "feature_image": "https://gatsby.ghost.io/content/images/2019/01/ghost-headless-feature-image.png",
+                "excerpt": "2019년 기준 언론산업 사업체 수는 전년보다 3.1% 줄어, 계속 증가세를 이어오던 수치가 감소세로 방향을 바꿨습니다.",
+                "visibility": "public",
+                "primary_author": {
+                    "name": "공공",
+                    "profile_image": "https://static.ghost.org/v2.0.0/images/ghost.png",
+                },
+                "tags": ['언론산업 실태조사'],
+                "reading_time": 2
+            }
+        },
+        {
+            "node": {
+                "title": "5 언론산업 사업체와 매체 수 (2014~2019)",
+                "slug": "hello",
+                "featured": false,
+                "feature_image": "https://gatsby.ghost.io/content/images/2019/01/ghost-headless-feature-image.png",
+                "excerpt": "2019년 기준 언론산업 사업체 수는 전년보다 3.1% 줄어, 계속 증가세를 이어오던 수치가 감소세로 방향을 바꿨습니다.",
+                "visibility": "public",
+                "primary_author": {
+                    "name": "공공",
+                    "profile_image": "https://static.ghost.org/v2.0.0/images/ghost.png",
+                },
+                "tags": ['언론산업 실태조사'],
+                "reading_time": 2
+            }
+        },
+        {
+            "node": {
+                "title": "6 언론산업 사업체와 매체 수 (2014~2019)",
+                "slug": "hello",
+                "featured": false,
+                "feature_image": "https://gatsby.ghost.io/content/images/2019/01/ghost-headless-feature-image.png",
+                "excerpt": "2019년 기준 언론산업 사업체 수는 전년보다 3.1% 줄어, 계속 증가세를 이어오던 수치가 감소세로 방향을 바꿨습니다.",
+                "visibility": "public",
+                "primary_author": {
+                    "name": "공공",
+                    "profile_image": "https://static.ghost.org/v2.0.0/images/ghost.png",
+                },
+                "tags": ['언론산업 실태조사'],
+                "reading_time": 2
+            }
+        },
+    ]
 
     return (
         <>

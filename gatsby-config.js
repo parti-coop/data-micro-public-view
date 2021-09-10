@@ -1,200 +1,66 @@
-const path = require(`path`)
-
-const config = require(`./src/utils/siteConfig`)
-const generateRSSFeed = require(`./src/utils/rss/generate-feed`)
-
-let ghostConfig
-
-try {
-  ghostConfig = require(`./.ghost`)
-} catch (e) {
-  ghostConfig = {
-    production: {
-      apiUrl: process.env.GHOST_API_URL,
-      contentApiKey: process.env.GHOST_CONTENT_API_KEY,
-    },
-  }
-} finally {
-  const { apiUrl, contentApiKey } =
-    process.env.NODE_ENV === `development`
-      ? ghostConfig.development
-      : ghostConfig.production
-
-  if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
-    throw new Error(
-      `GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`,
-    ) // eslint-disable-line
-  }
-}
-
-if (
-  process.env.NODE_ENV === `production` &&
-  config.siteUrl === `http://localhost:8000` &&
-  !process.env.SITEURL
-) {
-  throw new Error(
-    `siteUrl can't be localhost and needs to be configured in siteConfig. Check the README.`,
-  ) // eslint-disable-line
-}
-
 /**
- * This is the place where you can tell Gatsby which plugins to use
- * and set them up the way you want.
+ * Configure your Gatsby site with this file.
  *
- * Further info 👉🏼 https://www.gatsbyjs.org/docs/gatsby-config/
- *
+ * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+
 module.exports = {
-  siteMetadata: {
-    siteUrl: process.env.SITEURL || config.siteUrl,
-  },
+  /* Your site config here */
   plugins: [
-    /**
-     *  Content Plugins
-     */
+    'gatsby-transformer-remark',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp', // Needed for dynamic images
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        path: path.join(__dirname, `src`, `pages`),
-        name: `pages`,
-      },
-    },
-    // Setup for optimised images.
-    // See https://www.gatsbyjs.org/packages/gatsby-image/
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.join(__dirname, `src`, `images`),
-        name: `images`,
-      },
-    },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-source-ghost`,
-      options:
-        process.env.NODE_ENV === `development`
-          ? ghostConfig.development
-          : ghostConfig.production,
-    },
-    /**
-     *  Utility Plugins
-     */
-    {
-      resolve: `gatsby-plugin-ghost-manifest`,
-      options: {
-        short_name: config.shortTitle,
-        start_url: `/`,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        display: `minimal-ui`,
-        icon: `static/${config.siteIcon}`,
-        legacy: true,
-        query: `
-                {
-                    allGhostSettings {
-                        edges {
-                            node {
-                                title
-                                description
-                            }
-                        }
-                    }
-                }
-              `,
+        name: 'notes',
+        path: `${__dirname}/src/notes/`,
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        query: `
-                {
-                    allGhostSettings {
-                        edges {
-                            node {
-                                title
-                                description
-                            }
-                        }
-                    }
-                }
-              `,
-        feeds: [generateRSSFeed(config)],
+        name: 'projects',
+        path: `${__dirname}/src/projects/`,
       },
     },
     {
-      resolve: `gatsby-plugin-advanced-sitemap`,
+      resolve: 'gatsby-plugin-page-creator',
       options: {
-        query: `
-                {
-                    allGhostPost {
-                        edges {
-                            node {
-                                id
-                                slug
-                                updated_at
-                                created_at
-                                feature_image
-                            }
-                        }
-                    }
-                    allGhostPage {
-                        edges {
-                            node {
-                                id
-                                slug
-                                updated_at
-                                created_at
-                                feature_image
-                            }
-                        }
-                    }
-                    allGhostTag {
-                        edges {
-                            node {
-                                id
-                                slug
-                                feature_image
-                            }
-                        }
-                    }
-                    allGhostAuthor {
-                        edges {
-                            node {
-                                id
-                                slug
-                                profile_image
-                            }
-                        }
-                    }
-                }`,
-        mapping: {
-          allGhostPost: {
-            sitemap: `posts`,
-          },
-          allGhostTag: {
-            sitemap: `tags`,
-          },
-          allGhostAuthor: {
-            sitemap: `authors`,
-          },
-          allGhostPage: {
-            sitemap: `pages`,
-          },
-        },
-        exclude: [
-          `/dev-404-page`,
-          `/404`,
-          `/404.html`,
-          `/offline-plugin-app-shell-fallback`,
-        ],
-        createLinkInHead: true,
-        addUncaughtPages: true,
+        path: `${__dirname}/src/projects`,
       },
     },
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-force-trailing-slashes`,
-    `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.mdx', '.md'],
+        // gatsbyRemarkPlugins: [
+        //   `gatsby-remark-prismjs`,
+        //   {
+        //     resolve: `gatsby-remark-images`,
+        //     options: {
+        //       maxWidth: 1000,
+        //       linkImagesToOriginal: false,
+        //       withWebp: true,
+        //     },
+        //   },
+        // ],
+      },
+    },
+    'gatsby-plugin-emotion',
   ],
+  siteMetadata: {
+    title: '한국인의 생각',
+    description: '한국인의 생각 설명',
+    copyright: 'This is copyright 2021 공공의창 & 빠띠',
+    contact: 'contact@parti.coop',
+  },
 }

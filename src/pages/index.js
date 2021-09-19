@@ -15,6 +15,15 @@ export default function Home({ data }) {
   return (
     <Layout>
       <Header />
+      <div>
+        {data.allMdx.group.map((tag) => {
+          return (
+            <Link to={`/tags/${tag.tag}`}>
+              {tag.tag} 게시물 {tag.totalCount}개 &nbsp;
+            </Link>
+          )
+        })}
+      </div>
       <ContentsList />
       {/* <section className={styles.header}>
         <div>
@@ -48,6 +57,10 @@ export const query = graphql`
           title
           slug
         }
+      }
+      group(field: frontmatter___tags) {
+        tag: fieldValue
+        totalCount
       }
     }
   }

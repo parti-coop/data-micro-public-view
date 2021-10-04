@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react"
+import React, { PureComponent } from 'react'
 import {
   ResponsiveContainer,
   ComposedChart,
@@ -12,11 +12,11 @@ import {
   Legend,
   Scatter,
   AreaChart,
-} from "recharts"
+} from 'recharts'
 
 const data = [
   {
-    name: "2014",
+    name: '2014',
     일간신문: 171,
     주간신문: 1143,
     방송: 53,
@@ -24,7 +24,7 @@ const data = [
     통신: 15,
   },
   {
-    name: "2015",
+    name: '2015',
     일간신문: 177,
     주간신문: 1165,
     방송: 52,
@@ -32,7 +32,7 @@ const data = [
     통신: 18,
   },
   {
-    name: "2016",
+    name: '2016',
     일간신문: 191,
     주간신문: 1232,
     방송: 52,
@@ -40,7 +40,7 @@ const data = [
     통신: 21,
   },
   {
-    name: "2017",
+    name: '2017',
     일간신문: 197,
     주간신문: 1232,
     방송: 51,
@@ -48,7 +48,7 @@ const data = [
     통신: 20,
   },
   {
-    name: "2018",
+    name: '2018',
     일간신문: 192,
     주간신문: 1292,
     방송: 51,
@@ -57,11 +57,17 @@ const data = [
   },
 ]
 
-export default class Example extends PureComponent {
-  static jsfiddleUrl = "https://jsfiddle.net/alidingling/9xopwa9v/"
+export default function ChartAA(props) {
+  const jsfiddleUrl = 'https://jsfiddle.net/alidingling/9xopwa9v/'
+  const adsf = props
+  console.log(props)
+  // { <h1>{props && props.title ? 'asdfasdf' : 'bwewrer'}</h1>}
 
-  render() {
-    return (
+  return (
+    <div>
+      {/* {<h1>{props && props.title ? 'asdfasdf' : 'bwewrer'}</h1>} */}
+      <div>type: {props.type}</div>
+      <div>data: {props.data}</div>
       <ResponsiveContainer width="100%" height={600}>
         <AreaChart
           width={500}
@@ -81,10 +87,10 @@ export default class Example extends PureComponent {
           <Tooltip />
           <Legend
             wrapperStyle={{
-              paddingTop: "20px",
-              fontSize: "11px",
-              fontWeight: "200",
-              marginLeft: "40px",
+              paddingTop: '20px',
+              fontSize: '11px',
+              fontWeight: '200',
+              marginLeft: '40px',
             }}
           />
           <Area
@@ -118,11 +124,11 @@ export default class Example extends PureComponent {
             stroke="#291ab0"
           />
           {/* <Bar dataKey="주간신문" barSize={20} fill="#413ea0" />
-        <Line type="monotone" dataKey="일간신문" stroke="#ff7300" />
-        <Scatter dataKey="인터넷신문" fill="red" />
-      <Scatter dataKey="통신" fill="green" /> */}
+      <Line type="monotone" dataKey="일간신문" stroke="#ff7300" />
+      <Scatter dataKey="인터넷신문" fill="red" />
+    <Scatter dataKey="통신" fill="green" /> */}
         </AreaChart>
       </ResponsiveContainer>
-    )
-  }
+    </div>
+  )
 }

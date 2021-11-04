@@ -6,20 +6,24 @@ import Layout from '../components/Layout'
 import * as styles from '../styles/home.module.css'
 import Header from '../components/Header'
 import ContentsList from '../components/ContentsList'
+import SEO from '../components/SEO'
 
-export default function Home({ data }) {
+export default function Home({ data, pageContext }) {
   console.log(data)
   const fluid = data.file.childImageSharp.fluid
   const gatsbyImageData = data.file.childImageSharp.gatsbyImageData
   console.log(fluid)
   return (
     <Layout>
+      <SEO />
       <Header />
-      <div>
+      <div className="mt-6">
         {data.allMdx.group.map((tag) => {
           return (
             <Link to={`/tags/${tag.tag}`}>
-              {tag.tag} 게시물 {tag.totalCount}개 &nbsp;
+              <div className="bg-coolgray100 text-sm text-coolgray700 rounded-xl px-2 py-1 mr-2 mb-1 inline-block">
+                {tag.tag} {/* 게시물 {tag.totalCount}개 */}
+              </div>
             </Link>
           )
         })}

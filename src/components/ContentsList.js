@@ -37,24 +37,29 @@ export default function ContentsList() {
   const contact = data.contact.siteMetadata.contact
 
   return (
-    <div>
-      <div className={styles.portfolio}>
-        <div className={styles.projects}>
-          {projects.map(project => (
+    <div className="mt-8">
+      <div>
+        <div className="w-full md:grid md:grid-cols-3 md:gap-4">
+          {projects.map((project) => (
             <Link to={`/projects/${project.frontmatter.slug}`} key={project.id}>
               <div>
                 <GatsbyImage
+                  className="rounded-lg h-60"
                   image={
                     project.frontmatter.thumb.childImageSharp.gatsbyImageData
                   }
                 />
-                <h3>{project.frontmatter.title}</h3>
-                <p>{project.frontmatter.stack}</p>
+                <div className="p-6">
+                  <h3 className="text-xl">{project.frontmatter.title}</h3>
+                  <div className="mt-2 text-coolgray600">
+                    {project.frontmatter.stack}
+                  </div>
+                </div>
               </div>
             </Link>
           ))}
         </div>
-        <p>Like what you see? Email me at {contact} for a quote!</p>
+        <p>스크롤 하시면 더 많은 컨텐츠를 확인하실 수 있습니다</p>
       </div>
     </div>
   )

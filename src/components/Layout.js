@@ -6,9 +6,12 @@ export default function Layout({ children }) {
   return (
     <div className="layout">
       <Navbar />
-      <div className="content">{children}</div>
+      <div className="content p-3 md:p-0">{children}</div>
       <footer>
-        <p>Copyright by 빠띠</p>
+        <div className="text-coolgray500 text-center py-8 border-t border-coolgray400">
+          Copyright by{' '}
+          <span className="text-coolgray700 font-bold">빠띠 & 공공의창</span>{' '}
+        </div>
       </footer>
     </div>
   )

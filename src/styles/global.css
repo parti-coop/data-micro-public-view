@@ -3,25 +3,19 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: 'Montserrat';
-  color: white;
+  font-family: 'Noto Sans KR sans-serif Montserrat ';
 }
 html,
 body {
   min-height: 100%;
 }
 body {
-  background: radial-gradient(
-    at top left,
-    rgb(144, 167, 158) 0%,
-    rgb(159, 147, 170) 100%
-  );
-  background-repeat: no-repeat;
 }
 p {
   margin: 16px auto;
@@ -33,27 +27,12 @@ p {
   max-width: 1200px;
   margin: 0 auto;
 }
-nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 40px auto;
-}
-nav .links {
-  display: inline-block;
-  text-align: right;
-}
-nav a {
-  display: inline-block;
-  margin-left: 20px;
-  font-weight: 400;
-  padding-bottom: 8px;
-  border-bottom: 3px solid transparent;
-}
+
 nav a:hover {
   border-color: white;
 }
-footer p {
-  text-align: center;
-  color: #bbb;
-  margin: 40px auto;
+
+.content {
+  max-width: 980px;
+  margin: 0 auto;
 }

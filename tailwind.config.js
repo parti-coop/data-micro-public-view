@@ -2,10 +2,26 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      textColor: {
+        primary: '#2644d7',
+        coolgray500: '#6b7280',
+        coolgray600: '#4b5563',
+        coolgray700: '#374151',
+      },
+      backgroundColor: {
+        primary: '#2644d7',
+        coolgray100: '#f3f4f6',
+      },
+      borderColor: {
+        coolgray400: '#9ca3af',
+      },
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      textColor: ['active'],
+    },
   },
   plugins: ['gatsby-plugin-postcss'],
 }

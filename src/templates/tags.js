@@ -2,6 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 // Components
 import { Link, graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import Header from '../components/Header'
+import ContentsList from '../components/ContentsList'
+import SEO from '../components/SEO'
+import TagList from '../components/TagList'
+
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { nodes, totalCount } = data.allMdx
@@ -11,24 +17,12 @@ const Tags = ({ pageContext, data }) => {
 
   console.log(data)
   return (
-    <div>
-      <h1>{tagHeader}</h1>
-      <ul>
-        {nodes.map((node) => {
-          const { title, slug } = node.frontmatter
-          return (
-            <li key={slug}>
-              <Link to={`/projects/${slug}`}>{title}</Link>
-            </li>
-          )
-        })}
-      </ul>
-      {/*
-              This links to a page that does not yet exist.
-              You'll come back to it!
-            */}
-      <Link to="/">All tags</Link>
-    </div>
+    <Layout>
+      <SEO />
+      <Header />
+      <TagList selected={tag} />
+      <ContentsList projects={nodes} />
+    </Layout>
   )
 }
 // Tags.propTypes = {

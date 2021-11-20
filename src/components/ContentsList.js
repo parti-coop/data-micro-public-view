@@ -3,38 +3,39 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import * as styles from '../styles/projects.module.css'
 
-export default function ContentsList() {
-  const data = useStaticQuery(graphql`
-    query ProjectList {
-      projects: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
-        nodes {
-          body
-          excerpt
-          frontmatter {
-            title
-            slug
-            stack
-            date
-            thumb {
-              childImageSharp {
-                gatsbyImageData
+export default function ContentsList({ projects }) {
+  if (!projects) {
+    const data = useStaticQuery(graphql`
+      query ProjectList {
+        projects: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+          nodes {
+            body
+            excerpt
+            frontmatter {
+              title
+              slug
+              stack
+              date
+              thumb {
+                childImageSharp {
+                  gatsbyImageData
+                }
               }
             }
           }
         }
-      }
-      contact: site {
-        siteMetadata {
-          contact
+        contact: site {
+          siteMetadata {
+            contact
+          }
         }
       }
-    }
-  `)
+    `)
 
-  console.log(data)
+    console.log(data)
 
-  const projects = data.projects.nodes
-  const contact = data.contact.siteMetadata.contact
+    projects = data.projects.nodes
+  }
 
   return (
     <div className="mt-8">

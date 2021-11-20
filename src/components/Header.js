@@ -16,12 +16,14 @@ export default function Header() {
   const { title } = data.site.siteMetadata
   return (
     <header className="text-center md:flex md:text-left pb-8 border-b border-coolgray400 md:mt-6">
-      <div>
-        <h2 className="text-coolgray500 mb-1">
+      <div className="md:flex md:flex-col md:justify-center md:min-w-pcHeader md:flex-1 md:pr-24">
+        <h2 className="text-coolgray500 mb-1 md:mb-4 md:text-2xl">
           데이터로 읽는 공공쟁점 사회여론
         </h2>
-        <h1 className="text-4xl text-primary font-bold mb-4">한국인의 생각</h1>
-        <div className="hidden md:block">
+        <h1 className="text-4xl text-primary font-bold mb-4 md:text-6xl md:mb-12">
+          한국인의 생각
+        </h1>
+        <div className="hidden md:block md:mb-8">
           <h3>
             투명성과 공공성을 확대하여 더 신뢰할 수 있는 사회를 만들기 위해
             공익데이터를 만듭니다.
@@ -31,7 +33,7 @@ export default function Header() {
             제공하고 빠띠가 개발합니다. <br />
           </h3>
         </div>
-        <button className="w-44 h-12 bg-primary text-white rounded-lg">
+        <button className="w-44 h-12 bg-primary text-white rounded-lg hover:bg-primary2">
           데이터 다운받기
         </button>
       </div>

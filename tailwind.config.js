@@ -11,10 +11,14 @@ module.exports = {
       },
       backgroundColor: {
         primary: '#2644d7',
+        primary2: '#1635c5',
         coolgray100: '#f3f4f6',
       },
       borderColor: {
         coolgray400: '#9ca3af',
+      },
+      minWidth: {
+        pcHeader: 431,
       },
     },
   },

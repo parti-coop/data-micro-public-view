@@ -14,17 +14,25 @@ export default function Navbar() {
   `)
   const { title } = data.site.siteMetadata
   return (
-    <nav className="mt-9 pb-9 border-b border-coolgray400">
+    <nav className="pt-8 pb-8 border-b border-coolgray400 bg-white">
       <div className="md:max-w-screen-lg md:flex">
         <h1 className="text-4xl font-semibold md:flex-1">{title}</h1>
         <div className="text-lg hidden md:flex md:">
-          <Link className="mr-4" to="/">
+          <Link className="mr-4 md:flex md:flex-col md:justify-center " to="/">
             한국인의 생각
           </Link>
-          <Link className="mr-4" to="/about">
+          <Link
+            className="mr-4 md:flex md:flex-col md:justify-center"
+            to="/about"
+          >
             한국인의 생각이란?
           </Link>
-          <Link to="/projects">프로젝트</Link>
+          <Link
+            to="/projects"
+            className="md:flex md:flex-col md:justify-center"
+          >
+            프로젝트
+          </Link>
         </div>
       </div>
     </nav>

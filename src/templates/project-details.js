@@ -9,13 +9,12 @@ import { MDXProvider } from '@mdx-js/react'
 export default function ProjectDetails({ data }) {
   console.log(data)
   // const { html } = data.mdx
-  const { title, stack, featuredImg } = data.mdx.frontmatter
+  const { title, stack, featuredImg, slug } = data.mdx.frontmatter
 
   return (
     <Layout>
       <div className={styles.details}>
-        <h2>{title}</h2>
-        <h3>{stack}</h3>
+        <h2 className="text-3xl">{title}</h2>
         <div className={styles.featured}>
           <GatsbyImage
             image={getImage(featuredImg.childImageSharp.gatsbyImageData)}
@@ -39,6 +38,7 @@ export const query = graphql`
       body
       excerpt
       frontmatter {
+        title
         slug
         stack
         date

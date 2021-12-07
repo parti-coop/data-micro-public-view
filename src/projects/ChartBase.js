@@ -1,18 +1,5 @@
 import React, { PureComponent } from 'react'
-import {
-  ResponsiveContainer,
-  ComposedChart,
-  Line,
-  Area,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  Scatter,
-  AreaChart,
-} from 'recharts'
+import LineChart from '../components/charts/LineChart'
 
 const data = [
   {
@@ -57,17 +44,45 @@ const data = [
   },
 ]
 
-export default function ChartAA(props) {
+const chartByType = (type, data) => {
+  if (type == 'line') {
+    return <LineChart data={data} />
+  } else if (type == 'pie') {
+    return <LineChart data={data} />
+  } else if (type == 'donut') {
+    return <LineChart data={data} />
+  }
+}
+
+const csvToJson = (path) => {
+  // const csv = require('csvtojson')
+  // return csv()
+  //   .fromFile(path)
+  //   .then((jsonObj) => {
+  //     return jsonObj
+  //   })
+}
+
+export default function ChartBase(props) {
   const jsfiddleUrl = 'https://jsfiddle.net/alidingling/9xopwa9v/'
   const adsf = props
   console.log(props)
   // { <h1>{props && props.title ? 'asdfasdf' : 'bwewrer'}</h1>}
+  if (!props.data || !props.type) {
+    return <> </>
+  }
+  // const csvPath = `~/data/${props.data}`
+  // const file = fs.readFile(csvPath)
+  // const jsonData = csvToJson(csvPath)
+  // console.log(jsonData)
 
   return (
     <div>
       {/* {<h1>{props && props.title ? 'asdfasdf' : 'bwewrer'}</h1>} */}
       <div>type: {props.type}</div>
       <div>data: {props.data}</div>
+      {chartByType(props.type, data)}
+      {/* 
       <ResponsiveContainer width="100%" height={600}>
         <AreaChart
           width={500}
@@ -122,13 +137,40 @@ export default function ChartAA(props) {
             dataKey="통신"
             fill="#291ab0"
             stroke="#291ab0"
-          />
-          {/* <Bar dataKey="주간신문" barSize={20} fill="#413ea0" />
+          /> */}
+      {/* <Bar dataKey="주간신문" barSize={20} fill="#413ea0" />
       <Line type="monotone" dataKey="일간신문" stroke="#ff7300" />
       <Scatter dataKey="인터넷신문" fill="red" />
     <Scatter dataKey="통신" fill="green" /> */}
-        </AreaChart>
-      </ResponsiveContainer>
+      {/* </AreaChart>
+      </ResponsiveContainer> */}
     </div>
   )
+}
+
+//var csv is the CSV file with headers
+function csvJSON(csv) {
+  var lines = csv.split('\n')
+
+  var result = []
+
+  // NOTE: If your columns contain commas in their values, you'll need
+  // to deal with those before doing the next step
+  // (you might convert them to &&& or something, then covert them back later)
+  // jsfiddle showing the issue https://jsfiddle.net/
+  var headers = lines[0].split(',')
+
+  for (var i = 1; i < lines.length; i++) {
+    var obj = {}
+    var currentline = lines[i].split(',')
+
+    for (var j = 0; j < headers.length; j++) {
+      obj[headers[j]] = currentline[j]
+    }
+
+    result.push(obj)
+  }
+
+  //return result; //JavaScript object
+  return JSON.stringify(result) //JSON
 }

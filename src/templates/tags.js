@@ -50,7 +50,6 @@ export const pageQuery = graphql`
         frontmatter {
           title
           slug
-          stack
           date
           thumb {
             childImageSharp {

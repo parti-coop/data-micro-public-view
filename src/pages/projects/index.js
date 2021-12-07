@@ -14,7 +14,7 @@ export default function Projects({ data }) {
         <h2>Portfolio</h2>
         <h3>Project & Websites I've craeted</h3>
         <div className={styles.projects}>
-          {projects.map(project => (
+          {projects.map((project) => (
             <Link to={`/projects/${project.frontmatter.slug}`} key={project.id}>
               <div>
                 <GatsbyImage
@@ -23,7 +23,6 @@ export default function Projects({ data }) {
                   }
                 />
                 <h3>{project.frontmatter.title}</h3>
-                <p>{project.frontmatter.stack}</p>
               </div>
             </Link>
           ))}
@@ -43,7 +42,6 @@ export const query = graphql`
         frontmatter {
           title
           slug
-          stack
           date
           thumb {
             childImageSharp {

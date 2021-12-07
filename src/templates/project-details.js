@@ -9,7 +9,7 @@ import { MDXProvider } from '@mdx-js/react'
 export default function ProjectDetails({ data }) {
   console.log(data)
   // const { html } = data.mdx
-  const { title, stack, featuredImg, slug } = data.mdx.frontmatter
+  const { title, featuredImg, slug } = data.mdx.frontmatter
 
   return (
     <Layout>
@@ -40,7 +40,6 @@ export const query = graphql`
       frontmatter {
         title
         slug
-        stack
         date
         featuredImg {
           childImageSharp {

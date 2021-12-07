@@ -14,8 +14,8 @@ export default function ContentsList({ projects }) {
             frontmatter {
               title
               slug
-              stack
               date
+              summary
               thumb {
                 childImageSharp {
                   gatsbyImageData
@@ -53,7 +53,7 @@ export default function ContentsList({ projects }) {
                 <div className="p-6">
                   <h3 className="text-xl">{project.frontmatter.title}</h3>
                   <div className="mt-2 text-coolgray600">
-                    {project.frontmatter.stack}
+                    {project.frontmatter.summary}
                   </div>
                 </div>
               </div>

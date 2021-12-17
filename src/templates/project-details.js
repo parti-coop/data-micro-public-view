@@ -5,11 +5,17 @@ import Layout from '../components/Layout'
 import * as styles from '../styles/projects.module.css'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
+import csvJSON from '../utils/csvJson'
 
 export default function ProjectDetails({ data }) {
-  console.log(data)
-  // const { html } = data.mdx
   const { title, featuredImg, slug } = data.mdx.frontmatter
+  console.log(data)
+  let parsedContent
+  if (data?.allFile?.edges.length > 0) {
+    const { content } = data.allFile.edges[0].node.internal
+    parsedContent = csvJSON(content)
+    console.log(parsedContent)
+  }
 
   return (
     <Layout>
@@ -21,7 +27,9 @@ export default function ProjectDetails({ data }) {
           />
         </div>
         <MDXProvider>
-          <MDXRenderer>{data.mdx.body}</MDXRenderer>
+          <MDXRenderer title={'My Stuff!'} data={parsedContent}>
+            {data.mdx.body}
+          </MDXRenderer>
         </MDXProvider>
         {/* <div
           className={styles.html}
@@ -44,6 +52,15 @@ export const query = graphql`
         featuredImg {
           childImageSharp {
             gatsbyImageData
+          }
+        }
+      }
+    }
+    allFile(filter: { name: { eq: $slug } }) {
+      edges {
+        node {
+          internal {
+            content
           }
         }
       }

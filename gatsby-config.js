@@ -56,12 +56,19 @@ module.exports = {
       },
     },
     'gatsby-plugin-emotion',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/data/`,
+      },
+    },
   ],
   siteMetadata: {
     title: '한국인의 생각',
     description: '한국인의 생각 설명',
     copyright: 'This is copyright 2021 공공의창 & 빠띠',
-    image: "/meta.png",
+    image: '/meta.png',
     contact: 'contact@parti.coop',
   },
 }

@@ -29,11 +29,13 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   `)
-  data.allMdx.nodes.forEach((node) => {
+  data.allMdx.nodes.forEach(async (node) => {
     createPage({
       path: `/projects/${node.frontmatter.slug}`,
       component: path.resolve('./src/templates/project-details.js'),
-      context: { slug: node.frontmatter.slug },
+      context: {
+        slug: node.frontmatter.slug,
+      },
     })
   })
 
@@ -56,3 +58,61 @@ exports.createPages = async ({ actions, graphql }) => {
   //   context: { slug: 'graphql-test' },
   // })
 }
+
+// async function onCreateNode({
+//   node,
+//   actions,
+//   loadNodeContent,
+//   createNodeId,
+//   createContentDigest,
+// }) {
+//   function transformObject(obj, id, type) {
+//     const yamlNode = {
+//       ...obj,
+//       id,
+//       children: [],
+//       parent: node.id,
+//       internal: {
+//         contentDigest: createContentDigest(obj),
+//         type,
+//       },
+//     }
+//     createNode(yamlNode)
+//     createParentChildLink({ parent: node, child: yamlNode })
+//   }
+
+//   const { createNode, createParentChildLink } = actions
+
+//   if (node.internal.mediaType !== `text/csv`) {
+//     return
+//   }
+
+//   const content = await loadNodeContent(node)
+//   const parsedContent = csvJSON(content)
+//   console.log(node.name)
+//   console.log(content)
+//   console.log(parsedContent)
+
+//   const csvNode = {
+//     children: [],
+//     parent: node.id,
+//     name: node.name,
+//     content: parsedContent,
+//     internal: {
+//       contentDigest: createContentDigest(parsedContent),
+//     },
+//   }
+
+//   createNode(csvNode)
+//   createParentChildLink({ parent: node, child: csvNode })
+
+//   // parsedContent.forEach((obj, i) => {
+//   //   transformObject(
+//   //     obj,
+//   //     obj.id ? obj.id : createNodeId(`${node.id} [${i}] >>> YAML`),
+//   //     _.upperFirst(_.camelCase(`${node.name} Yaml`))
+//   //   )
+//   // })
+// }
+
+// exports.onCreateNode = onCreateNode

@@ -63,6 +63,8 @@ const csvToJson = (path) => {
   //   })
 }
 
+// import { fs } from 'fs'
+
 export default function ChartBase(props) {
   const jsfiddleUrl = 'https://jsfiddle.net/alidingling/9xopwa9v/'
   const adsf = props
@@ -80,8 +82,8 @@ export default function ChartBase(props) {
     <div>
       {/* {<h1>{props && props.title ? 'asdfasdf' : 'bwewrer'}</h1>} */}
       <div>type: {props.type}</div>
-      <div>data: {props.data}</div>
-      {chartByType(props.type, data)}
+      {/* <div>data: {props.data}</div> */}
+      {chartByType(props.type, props.data)}
       {/* 
       <ResponsiveContainer width="100%" height={600}>
         <AreaChart

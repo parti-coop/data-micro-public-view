@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react'
-import LineChart from '../components/charts/LineChart'
+import MyAreaChart from '../components/charts/MyAreaChart'
+import MyBarChart from '../components/charts/MyBarChart'
+import MyLineChart from '../components/charts/MyLineChart'
+import MyPieChart from '../components/charts/MyPieChart'
 
 const data = [
   {
@@ -44,30 +47,19 @@ const data = [
   },
 ]
 
-const chartByType = (type, data) => {
+const chartByType = ({ type, data, columns }) => {
   if (type == 'line') {
-    return <LineChart data={data} />
+    return <MyLineChart data={data} columns={columns} />
+  } else if (type == 'bar') {
+    return <MyBarChart data={data} columns={columns} />
   } else if (type == 'pie') {
-    return <LineChart data={data} />
-  } else if (type == 'donut') {
-    return <LineChart data={data} />
+    return <MyPieChart data={data} columns={columns} />
+  } else if (type == 'area') {
+    return <MyAreaChart data={data} columns={columns} />
   }
 }
 
-const csvToJson = (path) => {
-  // const csv = require('csvtojson')
-  // return csv()
-  //   .fromFile(path)
-  //   .then((jsonObj) => {
-  //     return jsonObj
-  //   })
-}
-
-// import { fs } from 'fs'
-
 export default function ChartBase(props) {
-  const jsfiddleUrl = 'https://jsfiddle.net/alidingling/9xopwa9v/'
-  const adsf = props
   console.log(props)
   // { <h1>{props && props.title ? 'asdfasdf' : 'bwewrer'}</h1>}
   if (!props.data || !props.type) {
@@ -81,9 +73,8 @@ export default function ChartBase(props) {
   return (
     <div>
       {/* {<h1>{props && props.title ? 'asdfasdf' : 'bwewrer'}</h1>} */}
-      <div>type: {props.type}</div>
       {/* <div>data: {props.data}</div> */}
-      {chartByType(props.type, props.data)}
+      {chartByType(props)}
       {/* 
       <ResponsiveContainer width="100%" height={600}>
         <AreaChart

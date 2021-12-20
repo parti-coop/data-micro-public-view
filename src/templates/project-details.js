@@ -10,27 +10,36 @@ import csvJSON from '../utils/csvJson'
 export default function ProjectDetails({ data }) {
   const { title, featuredImg, slug } = data.mdx.frontmatter
   console.log(data)
-  let parsedContent
+  let parsedContent, columns
   if (data?.allFile?.edges.length > 0) {
     const { content } = data.allFile.edges[0].node.internal
-    parsedContent = csvJSON(content)
+    const { result, headers } = csvJSON(content)
+    parsedContent = result
+    columns = headers
     console.log(parsedContent)
+    console.log(columns)
   }
 
   return (
     <Layout>
-      <div className={styles.details}>
-        <h2 className="text-3xl">{title}</h2>
+      <div className="">
+        <h2 className="text-3xl md:px-4 md:py-4">{title}</h2>
         <div className={styles.featured}>
           <GatsbyImage
             image={getImage(featuredImg.childImageSharp.gatsbyImageData)}
           />
         </div>
-        <MDXProvider>
-          <MDXRenderer title={'My Stuff!'} data={parsedContent}>
-            {data.mdx.body}
-          </MDXRenderer>
-        </MDXProvider>
+        <div className="md:px-4">
+          <MDXProvider>
+            <MDXRenderer
+              title={'My Stuff!'}
+              data={parsedContent}
+              columns={columns}
+            >
+              {data.mdx.body}
+            </MDXRenderer>
+          </MDXProvider>
+        </div>
         {/* <div
           className={styles.html}
           dangerouslySetInnerHTML={{ __html: html }}

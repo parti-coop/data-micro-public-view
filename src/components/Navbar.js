@@ -16,11 +16,10 @@ export default function Navbar() {
   return (
     <nav className="pt-8 pb-8 border-b border-coolgray400 bg-white">
       <div className="md:max-w-screen-lg md:flex">
-        <h1 className="text-4xl font-semibold md:flex-1">{title}</h1>
-        <div className="text-lg hidden md:flex md:">
-          <Link className="mr-4 md:flex md:flex-col md:justify-center " to="/">
-            한국인의 생각
-          </Link>
+        <h1 className="text-4xl font-semibold md:flex-1">
+          <Link to="/">{title}</Link>
+        </h1>
+        <div className="text-lg hidden md:flex">
           <Link
             className="mr-4 md:flex md:flex-col md:justify-center"
             to="/about"

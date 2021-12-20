@@ -59,60 +59,72 @@ exports.createPages = async ({ actions, graphql }) => {
   // })
 }
 
-// async function onCreateNode({
-//   node,
-//   actions,
-//   loadNodeContent,
-//   createNodeId,
-//   createContentDigest,
-// }) {
-//   function transformObject(obj, id, type) {
-//     const yamlNode = {
-//       ...obj,
-//       id,
-//       children: [],
-//       parent: node.id,
-//       internal: {
-//         contentDigest: createContentDigest(obj),
-//         type,
-//       },
-//     }
-//     createNode(yamlNode)
-//     createParentChildLink({ parent: node, child: yamlNode })
-//   }
+//var csv is the CSV file with headers
+function csvJSON(csv) {
+  var lines = csv.split('\n')
 
-//   const { createNode, createParentChildLink } = actions
+  var result = []
 
-//   if (node.internal.mediaType !== `text/csv`) {
-//     return
-//   }
+  // NOTE: If your columns contain commas in their values, you'll need
+  // to deal with those before doing the next step
+  // (you might convert them to &&& or something, then covert them back later)
+  // jsfiddle showing the issue https://jsfiddle.net/
+  var headers = lines[0].split(',')
 
-//   const content = await loadNodeContent(node)
-//   const parsedContent = csvJSON(content)
-//   console.log(node.name)
-//   console.log(content)
-//   console.log(parsedContent)
+  for (var i = 1; i < lines.length; i++) {
+    var obj = {}
+    var currentline = lines[i].split(',')
 
-//   const csvNode = {
-//     children: [],
-//     parent: node.id,
-//     name: node.name,
-//     content: parsedContent,
-//     internal: {
-//       contentDigest: createContentDigest(parsedContent),
-//     },
-//   }
+    for (var j = 0; j < headers.length; j++) {
+      obj[headers[j]] = currentline[j]
+    }
 
-//   createNode(csvNode)
-//   createParentChildLink({ parent: node, child: csvNode })
+    result.push(obj)
+  }
 
-//   // parsedContent.forEach((obj, i) => {
-//   //   transformObject(
-//   //     obj,
-//   //     obj.id ? obj.id : createNodeId(`${node.id} [${i}] >>> YAML`),
-//   //     _.upperFirst(_.camelCase(`${node.name} Yaml`))
-//   //   )
-//   // })
-// }
+  return result //JavaScript object
+  // return JSON.stringify(result); //JSON
+}
 
-// exports.onCreateNode = onCreateNode
+async function onCreateNode({
+  node,
+  actions,
+  loadNodeContent,
+  createNodeId,
+  createContentDigest,
+}) {
+  const { createNode, createParentChildLink } = actions
+
+  if (node.internal.mediaType !== `text/csv`) {
+    return
+  }
+
+  const content = await loadNodeContent(node)
+  const parsedContent = csvJSON(content)
+  console.log(node.name)
+  console.log(content)
+  console.log(parsedContent)
+
+  const csvNode = {
+    children: [],
+    parent: node.id,
+    name: node.name,
+    internal: {
+      // content2: parsedContent,
+      contentDigest: createContentDigest(parsedContent),
+    },
+  }
+
+  createNode(csvNode)
+  createParentChildLink({ parent: node, child: csvNode })
+
+  // parsedContent.forEach((obj, i) => {
+  //   transformObject(
+  //     obj,
+  //     obj.id ? obj.id : createNodeId(`${node.id} [${i}] >>> YAML`),
+  //     _.upperFirst(_.camelCase(`${node.name} Yaml`))
+  //   )
+  // })
+}
+
+exports.onCreateNode = onCreateNode

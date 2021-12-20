@@ -16,12 +16,9 @@ import {
   Cell,
 } from 'recharts'
 
-export default function LineChart({ type, data }) {
-  const jsfiddleUrl = 'https://jsfiddle.net/alidingling/9xopwa9v/'
-
+export default function MyLineChart({ type, data }) {
   return (
     <>
-      <div>Line Type</div>
       <ResponsiveContainer width="100%" height={600}>
         <AreaChart
           width={500}
@@ -82,30 +79,6 @@ export default function LineChart({ type, data }) {
           <Scatter dataKey="인터넷신문" fill="red" />
         <Scatter dataKey="통신" fill="green" /> */}
         </AreaChart>
-      </ResponsiveContainer>
-      <div>Bar Type</div>
-      <ResponsiveContainer width="100%" height={400}>
-        <BarChart
-          data={data}
-          fontSize={11}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-          layout="vertical"
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <YAxis dataKey="기준" type="category" />
-          <XAxis
-            type="number"
-            tickFormatter={(tick) => {
-              return `${tick * 100}%`
-            }}
-          />
-          {/* <Tooltip content={<CustomTooltip />} /> */}
-          <Bar dataKey="비율" fill="#f15a22" barSize={12}>
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={'#4BE3E2'} />
-            ))}
-          </Bar>
-        </BarChart>
       </ResponsiveContainer>
     </>
   )

@@ -42,17 +42,6 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.mdx', '.md'],
-        // gatsbyRemarkPlugins: [
-        //   `gatsby-remark-prismjs`,
-        //   {
-        //     resolve: `gatsby-remark-images`,
-        //     options: {
-        //       maxWidth: 1000,
-        //       linkImagesToOriginal: false,
-        //       withWebp: true,
-        //     },
-        //   },
-        // ],
       },
     },
     'gatsby-plugin-emotion',

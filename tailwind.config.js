@@ -8,6 +8,7 @@ module.exports = {
         coolgray500: '#6b7280',
         coolgray600: '#4b5563',
         coolgray700: '#374151',
+        coolgray800: '#1f2937',
       },
       backgroundColor: {
         primary: '#2644d7',
@@ -16,9 +17,16 @@ module.exports = {
       },
       borderColor: {
         coolgray400: '#9ca3af',
+        coolgray600: '#4b5563',
       },
       minWidth: {
         pcHeader: 431,
+      },
+      fontFamily: {
+        header: ['Black Han Sans'],
+      },
+      maxWidth: {
+        content: '810px',
       },
     },
   },

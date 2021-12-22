@@ -66,7 +66,7 @@ export default function MyPieChart({ data, columns }) {
             dataKey={columns[1]}
             cx="50%"
             cy="50%"
-            outerRadius={100}
+            outerRadius={180}
             // fill={palette[0]}
             label={renderCustomizedLabel}
             labelLine={false}

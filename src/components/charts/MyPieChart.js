@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, useRef, useEffect } from 'react'
 import {
   ResponsiveContainer,
   ComposedChart,
@@ -48,16 +48,17 @@ const renderCustomizedLabel = ({
 }
 
 export default function MyPieChart({ data, columns }) {
-  console.log(columns)
+  const ref = useRef(null)
+  useEffect(() => {
+    console.log('width', ref.current ? ref.current.offsetWidth : 0)
+  }, [ref.current])
+
   data.forEach((value) => {
     value[columns[1]] = parseFloat(value[columns[1]])
   })
-  console.log(data)
-
-  data.map((entry, index) => console.log(palette[index % palette.length]))
 
   return (
-    <>
+    <div ref={ref}>
       <ResponsiveContainer width="100%" height={400}>
         <PieChart width={730} height={400}>
           <Pie
@@ -66,7 +67,7 @@ export default function MyPieChart({ data, columns }) {
             dataKey={columns[1]}
             cx="50%"
             cy="50%"
-            outerRadius={180}
+            outerRadius={(ref?.current?.offsetWidth - 10) / 2 ?? 180}
             // fill={palette[0]}
             label={renderCustomizedLabel}
             labelLine={false}
@@ -92,6 +93,6 @@ export default function MyPieChart({ data, columns }) {
           />
         </PieChart> */}
       </ResponsiveContainer>
-    </>
+    </div>
   )
 }

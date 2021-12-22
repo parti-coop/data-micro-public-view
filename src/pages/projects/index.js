@@ -2,7 +2,7 @@ import { graphql, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import Layout from '../../components/Layout'
-import * as styles from '../../styles/projects.module.css'
+import ContentsList from '../../components/ContentsList'
 
 export default function Projects({ data }) {
   const projects = data.projects.nodes
@@ -10,24 +10,9 @@ export default function Projects({ data }) {
   console.log(data)
   return (
     <Layout>
-      <div className={styles.portfolio}>
-        <h2>Portfolio</h2>
-        <h3>Project & Websites I've craeted</h3>
-        <div className={styles.projects}>
-          {projects.map((project) => (
-            <Link to={`/projects/${project.frontmatter.slug}`} key={project.id}>
-              <div>
-                <GatsbyImage
-                  image={
-                    project.frontmatter.thumb.childImageSharp.gatsbyImageData
-                  }
-                />
-                <h3>{project.frontmatter.title}</h3>
-              </div>
-            </Link>
-          ))}
-        </div>
-        <p>Like what you see? Email me at {contact} for a quote!</p>
+      <div className="p-6 md:p-8">
+        <h1 className="text-2xl font-bold text-coolgray800">프로젝트</h1>
+        <ContentsList />
       </div>
     </Layout>
   )

@@ -16,6 +16,7 @@ module.exports = {
         coolgray100: '#f3f4f6',
       },
       borderColor: {
+        coolgray300: '#d1d5db',
         coolgray400: '#9ca3af',
         coolgray600: '#4b5563',
       },

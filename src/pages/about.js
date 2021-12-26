@@ -1,5 +1,66 @@
 import React from 'react'
 import Layout from '../components/Layout'
+import { StaticImage } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
+
+const organiztionList = [
+  {
+    name: '리얼미터',
+    image: 'jowoncni.webp',
+  },
+  {
+    name: '리서치 뷰',
+    image: 'researchView.webp',
+  },
+  {
+    name: '우리리서치',
+    image: 'realmeter.webp',
+  },
+  {
+    name: '조원씨앤아이',
+    image: 'wooriResearch.webp',
+  },
+  {
+    name: '코리아스픽스',
+    image: 'koreaSpeaks.webp',
+  },
+  {
+    name: '티브릿지',
+    image: 'tBridge.webp',
+  },
+  {
+    name: '한국사회여론연구소',
+    image: 'tBridge.webp',
+  },
+  {
+    name: '한국여론연구소',
+    image: 'tBridge.webp',
+  },
+  {
+    name: '피플네트웍스리서치',
+    image: 'tBridge.webp',
+  },
+  {
+    name: '서던포스트',
+    image: 'tBridge.webp',
+  },
+  {
+    name: '세종리서치',
+    image: 'tBridge.webp',
+  },
+  {
+    name: '소상공인연구소',
+    image: 'tBridge.webp',
+  },
+  {
+    name: 'DPI',
+    image: 'tBridge.webp',
+  },
+  {
+    name: '지방자치데이터연구소',
+    image: 'tBridge.webp',
+  },
+]
 
 export default function about() {
   return (
@@ -16,8 +77,16 @@ export default function about() {
         </section>
         <section className="md:flex gap-7">
           <div className="flex-1">
-            <div></div>
-            <p className="text-coolgray600 bg-coolgray100 p-6 h-full border-t border-coolgray600">
+            <div className="flex justify-center items-center h-40">
+              <div>
+                <StaticImage
+                  width={180}
+                  src={`../../static/organization/publicView.webp`}
+                  alt="공공의창"
+                />
+              </div>
+            </div>
+            <p className="text-coolgray600 bg-coolgray100 p-6 h-auto border-t border-coolgray600">
               2016년 비영리 공공조사가 필요하다는 데 뜻을 모아 출범했다.
               리얼미터, 리서치뷰, 우리리서치, 리서치DNA, 조원씨앤아이,
               코리아스픽스, 티브릿지, 한국사회여론연구소, 한국여론연구소,
@@ -28,8 +97,16 @@ export default function about() {
             </p>
           </div>
           <div className="flex-1">
-            <div></div>
-            <p className="text-coolgray600 bg-coolgray100 p-6 h-full border-t border-coolgray600">
+            <div className="flex justify-center items-center h-40">
+              <div>
+                <StaticImage
+                  width={180}
+                  src={`../../static/Parti.svg`}
+                  alt="빠띠"
+                />
+              </div>
+            </div>
+            <p className="text-coolgray600 bg-coolgray100 p-6 h-auto border-t border-coolgray600">
               민주주의를 혁신하고 사회의 여러 영역으로 확산하기 위해 툴킷,
               플랫폼, 커뮤니티를 만드는 민주주의 활동가들의 협동조합입니다.
               디지털 기술을 활용해 신뢰와 협력을 위한 플랫폼을 만들고, 이에
@@ -43,11 +120,23 @@ export default function about() {
         </section>
         <h1 className="mt-16 text-xl text-coolgray800">함께하는 협력단체</h1>
         <div className="w-full md:grid md:grid-cols-3 mt-8">
-          {Array(14)
-            .fill(0)
-            .map(() => (
-              <div className="text-center h-40">단체 이미지</div>
-            ))}
+          {organiztionList.map((org) => (
+            <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+              <StaticImage
+                src={`../images/organization/jowoncni.webp`}
+                alt={org}
+              />
+              <StaticImage
+                src={`../../static/organization/${org.image}`}
+                alt={org}
+              />
+              <StaticImage
+                src={`../../static/organization/koreaSpeaks.webp`}
+                alt={org}
+              />
+              <div className="w-full absolute bottom-4">{org.name}</div>
+            </div>
+          ))}
         </div>
       </section>
     </Layout>

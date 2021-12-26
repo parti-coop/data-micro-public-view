@@ -36,16 +36,22 @@ export default function Navbar() {
               한국인의 생각이란?
             </Link>
           </div>
-          <div className="text-lg flex md:hidden">
-            <StaticImage
-              src={'../../static/menu.png'}
-              alt="공공의창 메인이미지"
-              className="w-8"
-              onClick={() => {
-                console.log('asdf')
-                setOpen(!open)
-              }}
-            />
+          <div
+            className="text-lg flex md:hidden"
+            onClick={() => {
+              setOpen(!open)
+            }}
+            style={{ marginTop: '4px' }}
+          >
+            <div style={{ height: '21px' }}>
+              <StaticImage
+                src={'../../static/menu-hamburger@3x.webp'}
+                width={32}
+                height={21}
+                aspectRatio={32 / 21}
+                alt="hamburger"
+              />
+            </div>
           </div>
         </div>
       </nav>
@@ -56,12 +62,6 @@ export default function Navbar() {
             to="/about"
           >
             한국인의 생각이란?
-          </Link>
-          <Link
-            className="block pt-7 pb-5 border-b border-coolgray400 text-center"
-            to="/projects"
-          >
-            프로젝트
           </Link>
         </div>
       ) : null}

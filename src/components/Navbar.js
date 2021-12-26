@@ -35,12 +35,6 @@ export default function Navbar() {
             >
               한국인의 생각이란?
             </Link>
-            <Link
-              to="/projects"
-              className="md:flex md:flex-col md:justify-center"
-            >
-              프로젝트
-            </Link>
           </div>
           <div className="text-lg flex md:hidden">
             <StaticImage

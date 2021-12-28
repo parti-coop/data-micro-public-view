@@ -1,5 +1,6 @@
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
+import Tag from './Tag'
 
 export default function TagList({ selected }) {
   const data = useStaticQuery(graphql`
@@ -17,14 +18,7 @@ export default function TagList({ selected }) {
     <div className="mt-8">
       <div className="mt-6">
         {data.allMdx.group.map((tag) => {
-          return (
-            <Link to={`/tags/${tag.tag}`}>
-              <div className="bg-coolgray100 text-sm text-coolgray700 rounded-xl px-2 py-1 mr-2 mb-1 inline-block">
-                {tag.tag} {/* 게시물 {tag.totalCount}개 */}
-                {selected == tag.tag ? 'selected' : ''}
-              </div>
-            </Link>
-          )
+          return <Tag tag={tag.tag} selected={selected} />
         })}
       </div>
     </div>

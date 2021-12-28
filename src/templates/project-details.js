@@ -8,7 +8,7 @@ import { MDXProvider } from '@mdx-js/react'
 import csvJSON from '../utils/csvJson'
 
 export default function ProjectDetails({ data }) {
-  const { title, featuredImg, slug } = data.mdx.frontmatter
+  const { title, featuredImg, slug, tags } = data.mdx.frontmatter
   let parsedContent, columns
   if (data?.allFile?.edges.length > 0) {
     const { content } = data.allFile.edges[0].node.internal
@@ -66,6 +66,7 @@ export const query = graphql`
         title
         slug
         date
+        tags
         featuredImg {
           childImageSharp {
             gatsbyImageData

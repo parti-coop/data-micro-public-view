@@ -61,24 +61,44 @@ export default function ProjectDetails({ data, pageContext }) {
         /> */}
       </div>
       <div className="md:flex py-4 md:py-6 md:px-4 border-b border-coolgray600">
-        <Link
-          to={`/projects/${prev.frontmatter.slug}`}
-          className="md:flex-1 md:flex-start"
-        >
-          <div>
-            <div className="mb-3">&lt; 이전 글</div>
-            <div className="flex-1 flex-start">{prev?.frontmatter?.title}</div>
+        {prev ? (
+          <Link
+            to={`/projects/${prev?.frontmatter?.slug}`}
+            className="md:flex-1 md:flex-start"
+          >
+            <div>
+              <div className="mb-3">&lt; 이전 글</div>
+              <div className="flex-1 flex-start">
+                {prev?.frontmatter?.title}
+              </div>
+            </div>
+          </Link>
+        ) : (
+          <div className="md:flex-1 md:flex-start">
+            <div>
+              <div className="mb-3">&lt; 이전 글</div>
+              <div className="flex-1 flex-start">없음</div>
+            </div>
           </div>
-        </Link>
-        <Link
-          to={`/projects/${next.frontmatter.slug}`}
-          className=" md:text-right"
-        >
-          <div className="mt-4 md:mt-0">
-            <div className="mb-3">다음 글 &gt;</div>
-            <div className="">{next?.frontmatter?.title}</div>
+        )}
+        {next ? (
+          <Link
+            to={`/projects/${next?.frontmatter.slug}`}
+            className=" md:text-right"
+          >
+            <div className="mt-4 md:mt-0">
+              <div className="mb-3">다음 글 &gt;</div>
+              <div className="">{next?.frontmatter?.title}</div>
+            </div>
+          </Link>
+        ) : (
+          <div className=" md:text-right">
+            <div className="mt-4 md:mt-0">
+              <div className="mb-3">다음 글 &gt;</div>
+              <div className="">없음</div>
+            </div>
           </div>
-        </Link>
+        )}
       </div>
       <div className="flex pb-4  md:px-4"></div>
       <div className="mt-8 mb-16 text-center">

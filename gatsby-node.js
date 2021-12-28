@@ -95,9 +95,9 @@ async function onCreateNode({
 
   const content = await loadNodeContent(node)
   const parsedContent = csvJSON(content)
-  console.log(node.name)
-  console.log(content)
-  console.log(parsedContent)
+  // console.log(node.name)
+  // console.log(content)
+  // console.log(parsedContent)
 
   const csvNode = {
     children: [],

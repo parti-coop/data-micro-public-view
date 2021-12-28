@@ -37,6 +37,7 @@ const SEO = ({ title, description, image, slug }) => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="image" content={image} />
       <meta name="description" content={metaDescription} />
+      <meta name="keywords" content={`한국인의생각,공공의창,빠띠`} />
 
       {/* OpenGraph tags */}
       <meta property="og:title" content={metaTitle} />

@@ -10,13 +10,18 @@ import SEO from '../components/SEO'
 import TagList from '../components/TagList'
 
 export default function Home({ data, pageContext }) {
-  console.log(data)
   const fluid = data.file.childImageSharp.fluid
   const gatsbyImageData = data.file.childImageSharp.gatsbyImageData
   console.log(fluid)
   return (
     <Layout>
-      <SEO />
+      <SEO
+        image={'/main.jpg'}
+        title={'홈'}
+        description={
+          '투명성과 공공성을 확대하여 더 신뢰할 수 있는 사회를 만들기 위해 공익데이터를 만듭니다'
+        }
+      />
       <Header />
       <TagList />
       <ContentsList />

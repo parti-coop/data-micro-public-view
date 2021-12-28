@@ -16,9 +16,20 @@ const Tags = ({ pageContext, data }) => {
   } tagged with "${tag}"`
 
   console.log(data)
+  let ogImage
+  try {
+    ogImage = nodes[0].frontmatter.thumb.childImageSharp.ogimg.src
+  } catch (error) {
+    ogImage = null
+  }
+
   return (
     <Layout>
-      <SEO />
+      <SEO
+        title={`태그: ${tag}`}
+        description={`태그된 게시물: ${totalCount}개`}
+        image={ogImage}
+      />
       <Header />
       <TagList selected={tag} />
       <ContentsList projects={nodes} />
@@ -54,6 +65,9 @@ export const pageQuery = graphql`
           thumb {
             childImageSharp {
               gatsbyImageData
+              ogimg: resize(width: 1000) {
+                src
+              }
             }
           }
         }

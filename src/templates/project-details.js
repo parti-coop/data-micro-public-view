@@ -7,9 +7,10 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
 import csvJSON from '../utils/csvJson'
 import Tag from '../components/Tag'
+import SEO from '../components/SEO'
 
-export default function ProjectDetails({ data }) {
-  const { title, featuredImg, slug, tags } = data.mdx.frontmatter
+export default function ProjectDetails({ data, pageContext }) {
+  const { title, summary, featuredImg, slug, tags } = data.mdx.frontmatter
   let parsedContent, columns
   if (data?.allFile?.edges.length > 0) {
     const { content } = data.allFile.edges[0].node.internal
@@ -18,8 +19,19 @@ export default function ProjectDetails({ data }) {
     columns = headers
   }
 
+  let ogImage
+  try {
+    ogImage = featuredImg.childImageSharp.ogimg.src
+  } catch (error) {
+    ogImage = null
+  }
+
+  const { prev, next } = pageContext
+  console.log(ogImage)
+
   return (
     <Layout>
+      <SEO title={title} description={summary} image={ogImage} />
       <div className="mb-4 md:mt-4">
         {tags.map((tag) => {
           return <Tag tag={tag} />
@@ -90,9 +102,13 @@ export const query = graphql`
         slug
         date
         tags
+        summary
         featuredImg {
           childImageSharp {
             gatsbyImageData
+            ogimg: resize(width: 1000) {
+              src
+            }
           }
         }
       }

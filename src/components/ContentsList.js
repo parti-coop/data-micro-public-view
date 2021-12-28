@@ -32,8 +32,6 @@ export default function ContentsList({ projects }) {
       }
     `)
 
-    console.log(data)
-
     projects = data.projects.nodes
   }
 

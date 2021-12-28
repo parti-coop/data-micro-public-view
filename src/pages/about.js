@@ -126,10 +126,10 @@ export default function about() {
                 src={`../images/organization/jowoncni.webp`}
                 alt={org}
               />
-              <StaticImage
+              {/* <StaticImage
                 src={`../../static/organization/${org.image}`}
                 alt={org}
-              />
+              /> */}
               <StaticImage
                 src={`../../static/organization/koreaSpeaks.webp`}
                 alt={org}

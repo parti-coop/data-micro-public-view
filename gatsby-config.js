@@ -7,6 +7,14 @@
 module.exports = {
   /* Your site config here */
   plugins: [
+    // {
+    //   resolve: 'gatsby-plugin-robots-txt',
+    //   options: {
+    //     host: 'https://www.example.com',
+    //     sitemap: 'https://www.example.com/sitemap.xml',
+    //     policy: [{ userAgent: '*', allow: '/' }]
+    //   }
+    // },
     'gatsby-transformer-remark',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',

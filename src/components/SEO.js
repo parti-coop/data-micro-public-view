@@ -35,8 +35,14 @@ const SEO = ({ title, description, image, slug }) => {
       {/* General tags */}
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="image" content={image} />
-      <meta name="description" content={metaDescription} />
+      <meta name="image" content={image ?? '/main.jpg'} />
+      <meta
+        name="description"
+        content={
+          metaDescription ??
+          '투명성과 공공성을 확대하여 더 신뢰할 수 있는 사회를 만들기 위해 공익데이터를 만듭니다'
+        }
+      />
       <meta name="keywords" content={`한국인의생각,공공의창,빠띠`} />
 
       {/* OpenGraph tags */}

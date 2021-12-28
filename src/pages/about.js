@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 import { StaticImage } from 'gatsby-plugin-image'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
@@ -65,6 +66,13 @@ const organiztionList = [
 export default function about() {
   return (
     <Layout>
+      <SEO
+        image={'/main.jpg'}
+        title={'한국인의 생각이란?'}
+        description={
+          '투명성과 공공성을 확대하여 더 신뢰할 수 있는 사회를 만들기 위해 공익데이터를 만듭니다'
+        }
+      />
       <section className="md:max-w-content m-auto pt-6 md:pt-12 pb-24">
         <section>
           <h1 className="text-2xl font-bold text-coolgray800">
@@ -120,23 +128,110 @@ export default function about() {
         </section>
         <h1 className="mt-16 text-xl text-coolgray800">함께하는 협력단체</h1>
         <div className="w-full md:grid md:grid-cols-3 mt-8">
-          {organiztionList.map((org) => (
-            <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
-              <StaticImage
-                src={`../images/organization/jowoncni.webp`}
-                alt={org}
-              />
-              {/* <StaticImage
-                src={`../../static/organization/${org.image}`}
-                alt={org}
-              /> */}
-              <StaticImage
-                src={`../../static/organization/koreaSpeaks.webp`}
-                alt={org}
-              />
-              <div className="w-full absolute bottom-4">{org.name}</div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <StaticImage
+              src={`../../static/organization/realmeter.webp`}
+              width={200}
+              alt={'리얼미터'}
+            />
+            <div className="w-full absolute bottom-4">리얼미터</div>
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <StaticImage
+              src={`../../static/organization/researchView.webp`}
+              width={100}
+              alt={'리서치 뷰'}
+            />
+            <div className="w-full absolute bottom-4">리서치 뷰</div>
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <StaticImage
+              src={`../../static/organization/wooriResearch.webp`}
+              width={200}
+              alt={'우리리서치'}
+            />
+            <div className="w-full absolute bottom-4">우리리서치</div>
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <StaticImage
+              src={`../../static/organization/jowoncni.webp`}
+              width={200}
+              alt={'조원씨앤아이'}
+            />
+            <div className="w-full absolute bottom-4">조원씨앤아이</div>
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <StaticImage
+              src={`../../static/organization/koreaSpeaks.webp`}
+              width={200}
+              alt={'코리아스픽스'}
+            />
+            <div className="w-full absolute bottom-4">코리아스픽스</div>
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <StaticImage
+              src={`../../static/organization/tBridge.webp`}
+              width={200}
+              alt={''}
+            />
+            <div className="w-full absolute bottom-4">티브릿지</div>
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <StaticImage
+              src={`../../static/organization/ksoi.webp`}
+              width={200}
+              alt={'한국사회여론연구소'}
+            />
+            <div className="w-full absolute bottborderom-4">
+              한국사회여론연구소
             </div>
-          ))}
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <div className="w-full absolute bottom-4">한국여론연구소</div>
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <StaticImage
+              src={`../../static/organization/pnr.webp`}
+              width={180}
+              alt={'피플네트웍스리서치'}
+            />
+            <div className="w-full absolute bottom-4">피플네트웍스리서치</div>
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <StaticImage
+              src={`../../static/organization/southernPost.webp`}
+              width={200}
+              alt={'서던포스트'}
+            />
+            <div className="w-full absolute bottom-4">서던포스트</div>
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <StaticImage
+              src={`../../static/organization/sejongResearch.webp`}
+              width={140}
+              alt={'세종리서치'}
+            />
+            <div className="w-full absolute bottom-4">세종리서치</div>
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <StaticImage
+              src={`../../static/organization/kmbi.webp`}
+              width={180}
+              alt={'소상공인연구소'}
+            />
+            <div className="w-full absolute bottom-4">소상공인연구소</div>
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <div className="w-full absolute bottom-4">DPI</div>
+          </div>
+          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <StaticImage
+              src={`../../static/organization/jibangjachi.webp`}
+              width={220}
+              alt={'지방자치데이터연구소'}
+            />
+            <div className="w-full absolute bottom-4">지방자치데이터연구소</div>
+          </div>
         </div>
       </section>
     </Layout>

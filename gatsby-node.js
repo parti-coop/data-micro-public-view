@@ -3,23 +3,19 @@ const path = require('path')
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
-  // const { data } = await graphql(`
-  //   query Projects {
-  //     allMarkdownRemark {
-  //       nodes {
-  //         frontmatter {
-  //           slug
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
   const { data } = await graphql(`
     query Projects {
       allMdx(sort: { fields: frontmatter___date, order: DESC }) {
         nodes {
           frontmatter {
+            title
             slug
+            summary
+            thumb {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
         }
         group(field: frontmatter___tags) {
@@ -29,12 +25,15 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   `)
-  data.allMdx.nodes.forEach(async (node) => {
+  const posts = data.allMdx.nodes
+  posts.forEach(async (node, index) => {
     createPage({
       path: `/projects/${node.frontmatter.slug}`,
       component: path.resolve('./src/templates/project-details.js'),
       context: {
         slug: node.frontmatter.slug,
+        prev: index == 0 ? null : posts[index - 1],
+        next: index == posts.length - 1 ? null : posts[index + 1],
       },
     })
   })
@@ -52,11 +51,6 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     })
   })
-  // actions.createPage({
-  //   path: `/projects/graphql-test`,
-  //   component: path.resolve("./src/templates/project-details.js"),
-  //   context: { slug: 'graphql-test' },
-  // })
 }
 
 //var csv is the CSV file with headers

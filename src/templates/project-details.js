@@ -6,6 +6,7 @@ import * as styles from '../styles/projects.module.css'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
 import csvJSON from '../utils/csvJson'
+import Tag from '../components/Tag'
 
 export default function ProjectDetails({ data }) {
   const { title, featuredImg, slug, tags } = data.mdx.frontmatter
@@ -19,6 +20,11 @@ export default function ProjectDetails({ data }) {
 
   return (
     <Layout>
+      <div className="mb-4 md:mt-4">
+        {tags.map((tag) => {
+          return <Tag tag={tag} />
+        })}
+      </div>
       <div className="border-b border-coolgrey400">
         <h2 className="text-3xl md:px-4 md:py-4">{title}</h2>
         {/* <div className={styles.featured}>
@@ -42,10 +48,27 @@ export default function ProjectDetails({ data }) {
           dangerouslySetInnerHTML={{ __html: html }}
         /> */}
       </div>
-      <div className="flex py-4 border-b border-coolgray600 ">
-        <div className="flex-1 flex-start">&lt; 이전 글</div>
-        <div className="">다음 글 &gt;</div>
+      <div className="md:flex py-4 md:py-6 md:px-4 border-b border-coolgray600">
+        <Link
+          to={`/projects/${prev.frontmatter.slug}`}
+          className="md:flex-1 md:flex-start"
+        >
+          <div>
+            <div className="mb-3">&lt; 이전 글</div>
+            <div className="flex-1 flex-start">{prev?.frontmatter?.title}</div>
+          </div>
+        </Link>
+        <Link
+          to={`/projects/${next.frontmatter.slug}`}
+          className=" md:text-right"
+        >
+          <div className="mt-4 md:mt-0">
+            <div className="mb-3">다음 글 &gt;</div>
+            <div className="">{next?.frontmatter?.title}</div>
+          </div>
+        </Link>
       </div>
+      <div className="flex pb-4  md:px-4"></div>
       <div className="mt-8 mb-16 text-center">
         <Link to="/">
           <button className="px-8 py-4 bg-coolgray100 rounded-md border border-coolgray600">

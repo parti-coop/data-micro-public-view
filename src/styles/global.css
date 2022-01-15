@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: 'Noto Sans KR sans-serif Montserrat ';
+  font-family: 'Noto Sans KR', 'sans-serif', 'Montserrat';
 }
 html,
 body {
@@ -21,16 +21,6 @@ body {
 p {
   margin: 16px auto;
   line-height: 1.5em;
-}
-
-/* layout & nav */
-.layout {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-nav a:hover {
-  border-color: white;
 }
 
 .content {

@@ -1,39 +1,13 @@
 import React, { PureComponent } from 'react'
 import {
   ResponsiveContainer,
-  ComposedChart,
-  Line,
-  Area,
   Bar,
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
-  Legend,
-  Scatter,
-  AreaChart,
   BarChart,
-  Cell,
-  LabelList,
 } from 'recharts'
 import { palette } from '../../utils/colors'
-
-const renderCustomizedLabel = ({
-  cx,
-  cy,
-  midAngle,
-  innerRadius,
-  outerRadius,
-  percent,
-  index,
-  name,
-}) => {
-  return (
-    <text fill="white" dominantBaseline="central">
-      {`${name}`}
-    </text>
-  )
-}
 
 export default function MyBarChart({ type, data, columns }) {
   data.forEach((value) => {
@@ -55,14 +29,7 @@ export default function MyBarChart({ type, data, columns }) {
           <YAxis dataKey={columns[0]} type="category" tick={{ fontSize: 14 }} />
           <XAxis type="number" domain={[0, 'dataMax']} />
           {columns.slice(1).map((column, index) => (
-            <Bar
-              dataKey={column}
-              fill={palette[index]}
-              maxBarSize={60}
-              // label={renderCustomizedLabel}
-            >
-              {/* <LabelList dataKey={datap} position="top" /> */}
-            </Bar>
+            <Bar dataKey={column} fill={palette[index]} maxBarSize={60}></Bar>
           ))}
         </BarChart>
       </ResponsiveContainer>

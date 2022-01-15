@@ -26,7 +26,7 @@ const SEO = ({ title, description, image, slug }) => {
   return (
     <Helmet
       htmlAttributes={{
-        lang: `en`,
+        lang: `ko`,
       }}
       title={title}
       defaultTitle={site.siteMetadata.title}
@@ -43,7 +43,7 @@ const SEO = ({ title, description, image, slug }) => {
           '투명성과 공공성을 확대하여 더 신뢰할 수 있는 사회를 만들기 위해 공익데이터를 만듭니다'
         }
       />
-      <meta name="keywords" content={`한국인의생각,공공의창,빠띠`} />
+      <meta name="keywords" content={`한국인의생각,공공의창,빠띠,공익데이터`} />
 
       {/* OpenGraph tags */}
       <meta property="og:title" content={metaTitle} />

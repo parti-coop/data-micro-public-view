@@ -1,22 +1,5 @@
-import React, { PureComponent, useRef, useEffect, useState } from 'react'
-import {
-  ResponsiveContainer,
-  ComposedChart,
-  Line,
-  Area,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  Scatter,
-  AreaChart,
-  BarChart,
-  Cell,
-  PieChart,
-  Pie,
-} from 'recharts'
+import React, { useRef, useEffect, useState } from 'react'
+import { ResponsiveContainer, Cell, PieChart, Pie } from 'recharts'
 import { palette } from '../../utils/colors'
 
 const RADIAN = Math.PI / 180
@@ -47,15 +30,6 @@ const renderCustomizedLabel = ({
 
   return (
     <g>
-      {/* <text
-        x={x}
-        y={y}
-        fill="black"
-        textAnchor={x > cx ? 'start' : 'end'}
-        dominantBaseline="central"
-      >
-        {`${name} (${(percent * 100).toFixed(0)}%)`}
-      </text> */}
       <path
         d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
         stroke={fill}
@@ -107,7 +81,6 @@ export default function MyPieChart({ data, columns }) {
   const ref = useRef(null)
   const [rendered, setRendered] = useState(0)
   useEffect(() => {
-    console.log('width', ref.current ? ref.current.offsetWidth : 0)
     if (ref.current) {
       setRendered(ref.current.offsetWidth > 0)
     }
@@ -116,7 +89,6 @@ export default function MyPieChart({ data, columns }) {
   data.forEach((value) => {
     value[columns[1]] = parseFloat(value[columns[1]])
   })
-  console.log(ref?.current?.offsetWidth)
 
   return (
     <div ref={ref} style={{ width: '100%', padding: '5px' }}>

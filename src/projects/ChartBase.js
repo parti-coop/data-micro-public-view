@@ -60,7 +60,6 @@ const chartByType = ({ type, data, columns }) => {
 }
 
 export default function ChartBase(props) {
-  console.log(props)
   // { <h1>{props && props.title ? 'asdfasdf' : 'bwewrer'}</h1>}
   if (!props.data || !props.type) {
     return <> </>

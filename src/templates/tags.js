@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// Components
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
@@ -15,7 +14,6 @@ const Tags = ({ pageContext, data }) => {
     totalCount === 1 ? '' : 's'
   } tagged with "${tag}"`
 
-  console.log(data)
   let ogImage
   try {
     ogImage = nodes[0].frontmatter.thumb.childImageSharp.ogimg.src
@@ -36,17 +34,17 @@ const Tags = ({ pageContext, data }) => {
     </Layout>
   )
 }
-// Tags.propTypes = {
-//   pageContext: PropTypes.shape({
-//     tag: PropTypes.string.isRequired,
-//   }),
-//   data: PropTypes.shape({
-//     allMdx: PropTypes.shape({
-//       totalCount: PropTypes.number.isRequired,
-//       nodes: PropTypes.arrayOf(),
-//     }),
-//   }),
-// }
+Tags.propTypes = {
+  pageContext: PropTypes.shape({
+    tag: PropTypes.string.isRequired,
+  }),
+  data: PropTypes.shape({
+    allMdx: PropTypes.shape({
+      totalCount: PropTypes.number.isRequired,
+      nodes: PropTypes.arrayOf(),
+    }),
+  }),
+}
 
 export default Tags
 export const pageQuery = graphql`
@@ -62,6 +60,7 @@ export const pageQuery = graphql`
           title
           slug
           date
+          summary
           thumb {
             childImageSharp {
               gatsbyImageData

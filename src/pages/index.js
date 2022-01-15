@@ -1,9 +1,6 @@
-import { Link } from '@reach/router'
 import { graphql } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import Layout from '../components/Layout'
-import * as styles from '../styles/home.module.css'
 import Header from '../components/Header'
 import ContentsList from '../components/ContentsList'
 import SEO from '../components/SEO'
@@ -12,7 +9,6 @@ import TagList from '../components/TagList'
 export default function Home({ data, pageContext }) {
   const fluid = data.file.childImageSharp.fluid
   const gatsbyImageData = data.file.childImageSharp.gatsbyImageData
-  console.log(fluid)
   return (
     <Layout>
       <SEO
@@ -23,7 +19,7 @@ export default function Home({ data, pageContext }) {
         }
       />
       <Header />
-      <TagList />
+      <TagList selected={'전체'} />
       <ContentsList />
     </Layout>
   )

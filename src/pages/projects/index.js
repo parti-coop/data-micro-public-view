@@ -7,7 +7,6 @@ import ContentsList from '../../components/ContentsList'
 export default function Projects({ data }) {
   const projects = data.projects.nodes
   const contact = data.contact.siteMetadata.contact
-  console.log(data)
   return (
     <Layout>
       <div className="p-6 md:p-8">

@@ -27,7 +27,6 @@ export default function ProjectDetails({ data, pageContext }) {
   }
 
   const { prev, next } = pageContext
-  console.log(ogImage)
 
   return (
     <Layout>

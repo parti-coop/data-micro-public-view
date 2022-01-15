@@ -41,7 +41,7 @@ export default function MyBarChart({ type, data, columns }) {
       value[column] = parseFloat(value[column])
     })
   })
-  console.log(data)
+
   return (
     <>
       <ResponsiveContainer width="100%" height={400}>
@@ -58,6 +58,7 @@ export default function MyBarChart({ type, data, columns }) {
             <Bar
               dataKey={column}
               fill={palette[index]}
+              maxBarSize={60}
               // label={renderCustomizedLabel}
             >
               {/* <LabelList dataKey={datap} position="top" /> */}

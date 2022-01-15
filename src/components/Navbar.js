@@ -26,9 +26,6 @@ export default function Navbar() {
             </Link>
           </h1>
           <div className="text-lg hidden md:flex">
-            <Link className="mr-4 md:flex md:flex-col md:justify-center" to="/">
-              한국인의 생각
-            </Link>
             <Link
               className="mr-4 md:flex md:flex-col md:justify-center"
               to="/about"

@@ -181,9 +181,7 @@ export default function about() {
               width={200}
               alt={'한국사회여론연구소'}
             />
-            <div className="w-full absolute bottborderom-4">
-              한국사회여론연구소
-            </div>
+            <div className="w-full absolute bottom-4">한국사회여론연구소</div>
           </div>
           <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
             <div className="w-full absolute bottom-4">한국여론연구소</div>

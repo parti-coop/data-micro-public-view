@@ -7,8 +7,6 @@ import SEO from '../components/SEO'
 import TagList from '../components/TagList'
 
 export default function Home({ data, pageContext }) {
-  const fluid = data.file.childImageSharp.fluid
-  const gatsbyImageData = data.file.childImageSharp.gatsbyImageData
   return (
     <Layout>
       <SEO
@@ -19,8 +17,7 @@ export default function Home({ data, pageContext }) {
         }
       />
       <Header />
-      <TagList selected={'전체'} />
-      <ContentsList />
+      <ContentsList tag={'전체'} />
     </Layout>
   )
 }

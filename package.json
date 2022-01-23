@@ -1,8 +1,8 @@
 {
   "name": "공공의창",
   "private": true,
-  "description": "공공의창 마이크로페이지",
-  "version": "0.0.4",
+  "description": "공공의창 프로젝트",
+  "version": "0.0.5",
   "license": "MIT",
   "author": "public view",
   "homepage": "https://publicview.kr",

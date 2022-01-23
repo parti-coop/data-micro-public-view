@@ -14,6 +14,7 @@ module.exports = {
         primary: '#2644d7',
         primary2: '#1635c5',
         coolgray100: '#f3f4f6',
+        button: '#f0f0f0',
       },
       borderColor: {
         coolgray300: '#d1d5db',

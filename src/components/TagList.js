@@ -15,8 +15,8 @@ export default function TagList({ selected }) {
   `)
 
   return (
-    <div className="mt-8">
-      <div className="mt-6">
+    <div className="md:flex-1 my-4">
+      <div>
         <Tag tag={'전체'} selected={selected} />
         {data.allMdx.group.map((tag) => {
           return <Tag tag={tag.tag} selected={selected} />

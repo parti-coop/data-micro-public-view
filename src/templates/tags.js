@@ -5,14 +5,10 @@ import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ContentsList from '../components/ContentsList'
 import SEO from '../components/SEO'
-import TagList from '../components/TagList'
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext
   const { nodes, totalCount } = data.allMdx
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? '' : 's'
-  } tagged with "${tag}"`
 
   let ogImage
   try {
@@ -29,7 +25,6 @@ const Tags = ({ pageContext, data }) => {
         image={ogImage}
       />
       <Header />
-      <TagList selected={tag} />
       <ContentsList projects={nodes} />
     </Layout>
   )

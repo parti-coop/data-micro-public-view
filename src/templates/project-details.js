@@ -8,6 +8,9 @@ import { MDXProvider } from '@mdx-js/react'
 import csvJSON from '../utils/csvJson'
 import Tag from '../components/Tag'
 import SEO from '../components/SEO'
+import KakaoShareButton from '../components/share/KakaoShareButton'
+import FacebookShareButton from '../components/share/FacebookShareButton'
+import TwitterShareButton from '../components/share/TwitterShareButton'
 
 export default function ProjectDetails({ data, pageContext }) {
   const { title, summary, featuredImg, slug, tags } = data.mdx.frontmatter
@@ -53,11 +56,12 @@ export default function ProjectDetails({ data, pageContext }) {
               {data.mdx.body}
             </MDXRenderer>
           </MDXProvider>
+          <div className="py-4 flex md:pt-8 md:pb-12">
+            <FacebookShareButton />
+            <TwitterShareButton />
+            <KakaoShareButton />
+          </div>
         </div>
-        {/* <div
-          className={styles.html}
-          dangerouslySetInnerHTML={{ __html: html }}
-        /> */}
       </div>
       <div className="md:flex py-4 md:py-6 md:px-4 border-b border-coolgray600">
         {prev ? (

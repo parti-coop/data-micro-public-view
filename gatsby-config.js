@@ -67,5 +67,6 @@ module.exports = {
     copyright: 'This is copyright 2021 공공의창 & 빠띠',
     image: '/meta.png',
     contact: 'contact@parti.coop',
+    url: 'public-view.kr',
   },
 }

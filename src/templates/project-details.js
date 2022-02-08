@@ -8,6 +8,9 @@ import { MDXProvider } from '@mdx-js/react'
 import csvJSON from '../utils/csvJson'
 import Tag from '../components/Tag'
 import SEO from '../components/SEO'
+import MyKakaoShareButton from '../components/share/MyKakaoShareButton'
+import MyFacebookShareButton from '../components/share/MyFacebookShareButton'
+import MyTwitterShareButton from '../components/share/MyTwitterShareButton'
 
 export default function ProjectDetails({ data, pageContext }) {
   const { title, summary, featuredImg, slug, tags } = data.mdx.frontmatter
@@ -32,8 +35,8 @@ export default function ProjectDetails({ data, pageContext }) {
     <Layout>
       <SEO title={title} description={summary} image={ogImage} />
       <div className="mb-4 md:mt-4">
-        {tags.map((tag) => {
-          return <Tag tag={tag} />
+        {tags.map((tag, index) => {
+          return <Tag key={`${tag}-${index}`} tag={tag} />
         })}
       </div>
       <div className="border-b border-coolgrey400">
@@ -53,11 +56,11 @@ export default function ProjectDetails({ data, pageContext }) {
               {data.mdx.body}
             </MDXRenderer>
           </MDXProvider>
+          <div className="pt-8 pb-12 flex md:pt-8 md:pb-12">
+            <MyFacebookShareButton shareUrl={`/projects/${slug}`} />
+            <MyTwitterShareButton shareUrl={`/projects/${slug}`} />
+          </div>
         </div>
-        {/* <div
-          className={styles.html}
-          dangerouslySetInnerHTML={{ __html: html }}
-        /> */}
       </div>
       <div className="md:flex py-4 md:py-6 md:px-4 border-b border-coolgray600">
         {prev ? (

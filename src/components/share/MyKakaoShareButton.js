@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-const KakaoShareButton = () => {
+const MyKakaoShareButton = () => {
   useEffect(() => {
     createKakaoButton()
   }, [])
@@ -66,4 +66,4 @@ const KakaoShareButton = () => {
   )
 }
 
-export default KakaoShareButton
+export default MyKakaoShareButton

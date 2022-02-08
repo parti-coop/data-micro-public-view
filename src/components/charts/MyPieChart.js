@@ -34,7 +34,7 @@ const renderCustomizedLabel = ({
         d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
         stroke={fill}
         fill="none"
-        stroke-width="2"
+        strokeWidth="2"
       />
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 8}

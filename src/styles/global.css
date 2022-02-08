@@ -18,10 +18,6 @@ body {
 }
 body {
 }
-p {
-  margin: 16px auto;
-  line-height: 1.5em;
-}
 
 .content {
   max-width: 1164px;

@@ -15,7 +15,8 @@ export default function Navbar() {
   `)
   const { title } = data.site.siteMetadata
   const [open, setOpen] = useState(false)
-  const isAbout = window.location.href.includes('/about')
+  const isBrowser = () => typeof window !== 'undefined'
+  const isAbout = isBrowser() && window.location.href.includes('/about')
 
   return (
     <>

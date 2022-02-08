@@ -20,6 +20,7 @@ module.exports = {
         coolgray300: '#d1d5db',
         coolgray400: '#9ca3af',
         coolgray600: '#4b5563',
+        listButton: '#6B7280',
       },
       minWidth: {
         pcHeader: 431,
@@ -29,6 +30,12 @@ module.exports = {
       },
       maxWidth: {
         content: '810px',
+      },
+      minHeight: {
+        about: '384px',
+      },
+      fontSize: {
+        aboutHeader: '2.4rem',
       },
     },
   },

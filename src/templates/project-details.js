@@ -46,7 +46,7 @@ export default function ProjectDetails({ data, pageContext }) {
             image={getImage(featuredImg.childImageSharp.gatsbyImageData)}
           />
         </div> */}
-        <div className="md:px-4">
+        <div className="md:px-4 leading-7 border-coolgray600">
           <MDXProvider>
             <MDXRenderer
               title={'My Stuff!'}
@@ -61,6 +61,9 @@ export default function ProjectDetails({ data, pageContext }) {
             <MyTwitterShareButton shareUrl={`/projects/${slug}`} />
           </div>
         </div>
+        <button className="w-40 h-12 mb-16 bg-primary text-white rounded-lg hover:bg-primary2">
+          다운받기
+        </button>
       </div>
       <div className="md:flex py-4 md:py-6 md:px-4 border-b border-coolgray600">
         {prev ? (
@@ -105,7 +108,10 @@ export default function ProjectDetails({ data, pageContext }) {
       <div className="flex pb-4  md:px-4"></div>
       <div className="mt-8 mb-16 text-center">
         <Link to="/">
-          <button className="px-8 py-4 bg-coolgray100 rounded-md border border-coolgray600">
+          <button
+            className="px-8 py-4 bg-coolgray100 text-coolgray800 rounded-md border border-coolgray600
+          hover:bg-white hover:border-listButton"
+          >
             목록 바로가기
           </button>
         </Link>

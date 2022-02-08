@@ -7,30 +7,37 @@ const organiztionList = [
   {
     name: '리얼미터',
     image: 'jowoncni.webp',
+    url: 'http://www.realmeter.net/',
   },
   {
     name: '리서치 뷰',
     image: 'researchView.webp',
+    url: 'https://www.facebook.com/researchview/',
   },
   {
     name: '우리리서치',
     image: 'realmeter.webp',
+    url: 'http://www.urir.kr/',
   },
   {
     name: '조원씨앤아이',
     image: 'wooriResearch.webp',
+    url: 'http://www.jowoncni.com/html/index.html',
   },
   {
     name: '코리아스픽스',
     image: 'koreaSpeaks.webp',
+    url: 'http://kspeaks.kr/',
   },
   {
     name: '티브릿지',
     image: 'tBridge.webp',
+    url: 'https://tbridge.kr/',
   },
   {
     name: '한국사회여론연구소',
     image: 'tBridge.webp',
+    url: 'http://ksoi.org/',
   },
   {
     name: '한국여론연구소',
@@ -74,10 +81,10 @@ export default function about() {
       />
       <section className="md:max-w-content m-auto pt-6 md:pt-12 pb-24">
         <section>
-          <h1 className="text-2xl font-bold text-coolgray800">
+          <h1 className="text-aboutHeader font-bold text-coolgray800 leading-10">
             한국인의 생각이란?
           </h1>
-          <p className="text-coolgray600">
+          <p className="text-lg leading-7 text-coolgray600 mt-6">
             투명성과 공공성을 확대하여 더 신뢰할 수있는 사회를 만들기 위해
             빠띠와 공공의창 공동기획으로 개발된 사이트입니다.
           </p>
@@ -93,7 +100,7 @@ export default function about() {
                 />
               </div>
             </div>
-            <p className="text-coolgray600 bg-coolgray100 p-6 h-auto border-t border-coolgray600">
+            <p className="text-lg text-coolgray600 bg-coolgray100 p-6 h-auto border-t border-coolgray600 min-h-about">
               2016년 비영리 공공조사가 필요하다는 데 뜻을 모아 출범했다.
               리얼미터, 리서치뷰, 우리리서치, 리서치DNA, 조원씨앤아이,
               코리아스픽스, 티브릿지, 한국사회여론연구소, 한국여론연구소,
@@ -113,7 +120,7 @@ export default function about() {
                 />
               </div>
             </div>
-            <p className="text-coolgray600 bg-coolgray100 p-6 h-auto border-t border-coolgray600">
+            <p className="text-lg text-coolgray600 bg-coolgray100 p-6 h-auto border-t border-coolgray600">
               민주주의를 혁신하고 사회의 여러 영역으로 확산하기 위해 툴킷,
               플랫폼, 커뮤니티를 만드는 민주주의 활동가들의 협동조합입니다.
               디지털 기술을 활용해 신뢰와 협력을 위한 플랫폼을 만들고, 이에
@@ -126,109 +133,158 @@ export default function about() {
           </div>
         </section>
         <h1 className="mt-16 text-xl text-coolgray800">함께하는 협력단체</h1>
-        <div className="w-full md:grid md:grid-cols-3 mt-8">
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+        <div className="w-full md:grid md:grid-cols-3 mt-8 border-t border-l border-r md:border-r-0 md:border-t md:border-l border-coolgray300">
+          <a
+            className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
+            href="http://www.realmeter.net/"
+            target="_blank"
+          >
             <StaticImage
               src={`../../static/organization/realmeter.webp`}
               width={200}
               alt={'리얼미터'}
             />
             <div className="w-full absolute bottom-4">리얼미터</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a
+            className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
+            href="https://www.facebook.com/researchview/"
+            target="_blank"
+          >
             <StaticImage
               src={`../../static/organization/researchView.webp`}
               width={100}
               alt={'리서치 뷰'}
             />
             <div className="w-full absolute bottom-4">리서치 뷰</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a
+            className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
+            href="http://www.urir.kr/"
+            target="_blank"
+          >
             <StaticImage
               src={`../../static/organization/wooriResearch.webp`}
               width={200}
               alt={'우리리서치'}
             />
             <div className="w-full absolute bottom-4">우리리서치</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a
+            className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
+            href="http://www.jowoncni.com/html/index.html"
+            target="_blank"
+          >
             <StaticImage
               src={`../../static/organization/jowoncni.webp`}
               width={200}
               alt={'조원씨앤아이'}
             />
             <div className="w-full absolute bottom-4">조원씨앤아이</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a
+            className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
+            href="http://kspeaks.kr/"
+            target="_blank"
+          >
             <StaticImage
               src={`../../static/organization/koreaSpeaks.webp`}
               width={200}
               alt={'코리아스픽스'}
             />
             <div className="w-full absolute bottom-4">코리아스픽스</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a
+            className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
+            href="http://tbridge.kr/"
+            target="_blank"
+          >
             <StaticImage
               src={`../../static/organization/tBridge.webp`}
               width={200}
               alt={''}
             />
             <div className="w-full absolute bottom-4">티브릿지</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a
+            className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
+            href="http://ksoi.org/"
+            target="_blank"
+          >
             <StaticImage
               src={`../../static/organization/ksoi.webp`}
               width={200}
               alt={'한국사회여론연구소'}
             />
             <div className="w-full absolute bottom-4">한국사회여론연구소</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center">
             <div className="w-full absolute bottom-4">한국여론연구소</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a
+            className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
+            href="https://www.pnresearch.net/"
+            target="_blank"
+          >
             <StaticImage
               src={`../../static/organization/pnr.webp`}
               width={180}
               alt={'피플네트웍스리서치'}
             />
             <div className="w-full absolute bottom-4">피플네트웍스리서치</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a
+            className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
+            href="http://www.southernpost.co.kr/"
+            target="_blank"
+          >
             <StaticImage
               src={`../../static/organization/southernPost.webp`}
               width={200}
               alt={'서던포스트'}
             />
             <div className="w-full absolute bottom-4">서던포스트</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a
+            className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
+            href="http://www.sejongr.kr/wordpress/"
+            target="_blank"
+          >
             <StaticImage
               src={`../../static/organization/sejongResearch.webp`}
               width={140}
               alt={'세종리서치'}
             />
             <div className="w-full absolute bottom-4">세종리서치</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a
+            className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
+            href="http://microbiz.or.kr/"
+            target="_blank"
+          >
             <StaticImage
               src={`../../static/organization/kmbi.webp`}
               width={180}
               alt={'소상공인연구소'}
             />
             <div className="w-full absolute bottom-4">소상공인연구소</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center">
             <div className="w-full absolute bottom-4">DPI</div>
-          </div>
-          <div className="text-center h-40 border border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+          </a>
+          <a
+            className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
+            href="https://www.lgrc.co.kr/ 
+          "
+            target="_blank"
+          >
             <StaticImage
               src={`../../static/organization/jibangjachi.webp`}
               width={220}
               alt={'지방자치데이터연구소'}
             />
             <div className="w-full absolute bottom-4">지방자치데이터연구소</div>
-          </div>
+          </a>
         </div>
       </section>
     </Layout>

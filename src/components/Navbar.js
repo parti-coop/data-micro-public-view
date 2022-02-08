@@ -15,6 +15,7 @@ export default function Navbar() {
   `)
   const { title } = data.site.siteMetadata
   const [open, setOpen] = useState(false)
+  const isAbout = window.location.href.includes('/about')
 
   return (
     <>
@@ -27,7 +28,9 @@ export default function Navbar() {
           </h1>
           <div className="text-lg hidden md:flex">
             <Link
-              className="mr-4 md:flex md:flex-col md:justify-center"
+              className={`mr-4 md:flex md:flex-col md:justify-center ${
+                isAbout ? 'text-coolgray800' : 'text-coolgray600'
+              }`}
               to="/about"
             >
               한국인의 생각이란?
@@ -55,7 +58,7 @@ export default function Navbar() {
       {open ? (
         <div className="absolute w-full bg-white">
           <Link
-            className="block pt-7 pb-5 border-b border-coolgray400 text-center"
+            className="block pt-7 pb-5 border-b border-coolgray400 text-center text-coolgray600"
             to="/about"
           >
             한국인의 생각이란?

@@ -23,14 +23,17 @@ export default function Header() {
         <h1 className="text-4xl text-primary font-bold mb-4 md:text-6xl md:mb-12">
           한국인의 생각
         </h1>
-        <div className="hidden md:block md:mb-8">
+        <div className="hidden md:block md:mb-8 text-lg leading-7 text-coolgray600">
           <h3>
             투명성과 공공성을 확대하여 더 신뢰할 수 있는 사회를 만들기 위해
             공익데이터를 만듭니다.
           </h3>
           <h3>
-            사회 쟁점에 대한 한국인의 생각을 담은 데이터는 공공의 창에서
-            제공하고 빠띠가 개발합니다. <br />
+            사회 쟁점에 대한 한국인의 생각을 담은 데이터는{' '}
+            <span className="font-bold">
+              공공의 창에서 제공하고 빠띠가 개발
+            </span>
+            합니다. <br />
           </h3>
         </div>
         <button className="w-44 h-12 bg-primary text-white rounded-lg hover:bg-primary2">

@@ -69,8 +69,10 @@ export default function ContentsList({ projects, selected, tag }) {
                     }
                   />
                   <div className="p-6">
-                    <h3 className="text-xl">{project.frontmatter.title}</h3>
-                    <div className="mt-2 text-coolgray600">
+                    <h3 className="text-coolgray800 text-xl font-bold ">
+                      {project.frontmatter.title}
+                    </h3>
+                    <div className="mt-2 text-coolgray600 text-lg">
                       {project.frontmatter.summary}
                     </div>
                   </div>

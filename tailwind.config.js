@@ -37,6 +37,12 @@ module.exports = {
       fontSize: {
         aboutHeader: '2.4rem',
       },
+      width: {
+        ximage: '66px',
+      },
+      height: {
+        ximage: '66px',
+      },
     },
   },
   variants: {

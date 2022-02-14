@@ -3,6 +3,21 @@ import Navbar from './Navbar'
 import '../styles/global.css'
 
 export default function Layout({ children }) {
+  const googletAnalytics = `
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WM3QY4R7HF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WM3QY4R7HF', {
+        'linker': {
+        'domains': ['public-view.kr', 'public-view.org']
+        }
+      });
+    </script>
+  `
+
   return (
     <div className="layout">
       <Navbar />
@@ -13,6 +28,7 @@ export default function Layout({ children }) {
           <span className="text-coolgray700 font-bold">빠띠 & 공공의창</span>{' '}
         </div>
       </footer>
+      <div dangerouslySetInnerHTML={{ __html: googletAnalytics }} />
     </div>
   )
 }

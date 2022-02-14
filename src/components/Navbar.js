@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="pl-6 pt-7 pb-5 pr-6 md:pt-8 md:pb-8 border-b border-coolgray400">
+      <nav className="pl-6 pt-7 pb-5 pr-6 md:pt-8 md:pb-8 border-b border-coolgray400 bg-white z-50">
         <div className="flex">
           <h1 className="text-4xl font-semibold flex-1">
             <Link className="font-header font-normal" to="/">

@@ -50,7 +50,7 @@ export default function ContentsList({ projects, selected, tag }) {
   }
 
   return (
-    <>
+    <div className="px-6">
       <Filter tag={tag} onQueryChange={onQueryChange} />
 
       <div className="mt-8">
@@ -82,6 +82,6 @@ export default function ContentsList({ projects, selected, tag }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

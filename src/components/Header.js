@@ -15,12 +15,12 @@ export default function Header() {
   `)
   const { title } = data.site.siteMetadata
   return (
-    <header className="text-center md:flex md:text-left pb-8 border-b border-coolgray400 md:mt-6">
-      <div className="md:flex md:flex-col md:justify-center md:min-w-pcHeader md:flex-1 md:pr-24">
-        <h2 className="text-coolgray500 mb-1 md:mb-4 md:text-2xl">
+    <header className="text-center relative md:flex md:text-left">
+      <div className="absolute md:relative w-full md:block md:flex md:flex-col md:justify-center md:min-w-pcHeader md:flex-1 md:pr-24 md:mt-6 z-20 mt-8 md:mt-0">
+        <h2 className="text-white md:text-coolgray500 mb-1 md:mb-4 md:text-2xl">
           데이터로 읽는 공공쟁점 사회여론
         </h2>
-        <h1 className="text-4xl text-primary font-bold mb-4 md:text-6xl md:mb-12">
+        <h1 className="text-4xl text-white md:text-primary font-bold mb-4 md:text-6xl md:mb-12">
           한국인의 생각
         </h1>
         <div className="hidden md:block md:mb-8 text-lg leading-7 text-coolgray600">
@@ -36,7 +36,7 @@ export default function Header() {
             합니다. <br />
           </h3>
         </div>
-        <button className="w-44 h-12 bg-primary text-white rounded-lg hover:bg-primary2">
+        <button className="w-44 h-12 bg-primary border border-white md:border-0 text-white rounded-lg hover:bg-primary2">
           데이터 다운받기
         </button>
       </div>
@@ -44,9 +44,15 @@ export default function Header() {
         <StaticImage
           src={'../../static/main.webp'}
           alt="공공의창 메인이미지"
-          className="w-full md:max-w-xl mt-6"
+          className="w-full md:max-w-xl hidden md:block"
+        />
+        <StaticImage
+          src={'../../static/main-mobile.webp'}
+          alt="공공의창 메인이미지"
+          className="w-full mt-headerMobile md:hidden z-minus1"
         />
       </div>
+      <div className="mx-6 pb-8 border-b border-coolgray400"></div>
     </header>
   )
 }

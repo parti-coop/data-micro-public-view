@@ -43,6 +43,12 @@ module.exports = {
       height: {
         ximage: '66px',
       },
+      margin: {
+        headerMobile: '-81px',
+      },
+      zIndex: {
+        minus1: '-1',
+      },
     },
   },
   variants: {

@@ -2,7 +2,6 @@ import { Link, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import React from 'react'
 import Layout from '../components/Layout'
-import * as styles from '../styles/projects.module.css'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
 import csvJSON from '../utils/csvJson'
@@ -14,12 +13,14 @@ import MyTwitterShareButton from '../components/share/MyTwitterShareButton'
 
 export default function ProjectDetails({ data, pageContext }) {
   const { title, summary, featuredImg, slug, tags } = data.mdx.frontmatter
-  let parsedContent, columns
+  let parsedContent, columns, fileUrl
   if (data?.allFile?.edges.length > 0) {
     const { content } = data.allFile.edges[0].node.internal
+    const { publicURL } = data.allFile.edges[0].node
     const { result, headers } = csvJSON(content)
     parsedContent = result
     columns = headers
+    fileUrl = publicURL
   }
 
   let ogImage
@@ -33,7 +34,7 @@ export default function ProjectDetails({ data, pageContext }) {
 
   return (
     <Layout>
-      <SEO title={title} description={summary} image={ogImage} />
+      <SEO title={title} description={summary} />
       <div className="mb-4 md:mt-4">
         {tags.map((tag, index) => {
           return <Tag key={`${tag}-${index}`} tag={tag} />
@@ -61,9 +62,11 @@ export default function ProjectDetails({ data, pageContext }) {
             <MyTwitterShareButton shareUrl={`/projects/${slug}`} />
           </div>
         </div>
-        <button className="w-40 h-12 mb-16 bg-primary text-white rounded-lg hover:bg-primary2">
-          다운받기
-        </button>
+        <a href={fileUrl}>
+          <button className="w-40 h-12 mb-16 bg-primary text-white rounded-lg hover:bg-primary2">
+            다운받기
+          </button>
+        </a>
       </div>
       <div className="md:flex py-4 md:py-6 md:px-4 border-b border-coolgray600">
         {prev ? (
@@ -147,6 +150,7 @@ export const query = graphql`
           internal {
             content
           }
+          publicURL
         }
       }
     }

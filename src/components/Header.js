@@ -36,9 +36,11 @@ export default function Header() {
             합니다. <br />
           </h3>
         </div>
-        <button className="w-44 h-12 bg-primary border border-white md:border-0 text-white rounded-lg hover:bg-primary2">
-          데이터 다운받기
-        </button>
+        <a href={'/data.zip'}>
+          <button className="w-44 h-12 bg-primary border border-white md:border-0 text-white rounded-lg hover:bg-primary2">
+            데이터 다운받기
+          </button>
+        </a>
       </div>
       <div>
         <div className='hidden md:block'>

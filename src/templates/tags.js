@@ -25,7 +25,7 @@ const Tags = ({ pageContext, data }) => {
         image={ogImage}
       />
       <Header />
-      <ContentsList projects={nodes} />
+      <ContentsList tag={tag} projects={nodes} />
     </Layout>
   )
 }

@@ -10,7 +10,6 @@ export default function Home({ data, pageContext }) {
   return (
     <Layout>
       <SEO
-        image={'/main.jpg'}
         title={'데이터로 읽는 공공쟁점 사회여론 한국인의 생각'}
         description={
           '투명성과 공공성을 확대하여 더 신뢰할 수 있는 사회를 만들기 위해 공익데이터를 만듭니다.'

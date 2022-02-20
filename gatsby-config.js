@@ -15,6 +15,7 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
+    `gatsby-plugin-react-helmet`,
     'gatsby-transformer-remark',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
@@ -69,6 +70,5 @@ module.exports = {
     contact: 'contact@parti.coop',
     url: 'public-view.kr',
     siteUrl: 'http://public-view.kr',
-
   },
 }

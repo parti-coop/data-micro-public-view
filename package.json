@@ -4,7 +4,7 @@
   "description": "공공의창 프로젝트",
   "version": "0.0.5",
   "license": "MIT",
-  "author": "public view",
+  "author": "빠띠, 공공의창",
   "homepage": "https://publicview.kr",
   "engines": {
     "node": ">= 14.17.5"

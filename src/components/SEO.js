@@ -81,7 +81,7 @@ const SEO = ({ title, description, image, slug }) => {
       {/* General tags */}
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="image" content={image ?? '/main.jpg'} />
+      <meta name="image" content={metaImage} />
       <meta
         name="description"
         content={

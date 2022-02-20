@@ -41,16 +41,20 @@ export default function Header() {
         </button>
       </div>
       <div>
-        <StaticImage
-          src={'../../static/main.webp'}
-          alt="공공의창 메인이미지"
-          className="w-full md:max-w-xl hidden md:block"
-        />
-        <StaticImage
-          src={'../../static/main-mobile.webp'}
-          alt="공공의창 메인이미지"
-          className="w-full mt-headerMobile md:hidden z-minus1"
-        />
+        <div className='hidden md:block'>
+          <StaticImage
+            src={'../../static/main.webp'}
+            alt="공공의창 메인이미지"
+            className="w-full md:max-w-xl"
+          />
+        </div>
+        <div className='md:hidden'>
+          <StaticImage
+            src={'../../static/main-mobile.webp'}
+            alt="공공의창 메인이미지"
+            className="w-full mt-headerMobile z-minus1"
+          />
+        </div>
       </div>
       <div className="mx-6 pb-8 border-b border-coolgray400"></div>
     </header>

@@ -36,6 +36,9 @@ npm install
     import ChartBase from './ChartBase'
     <ChartBase type={'pie'} data={props.data} columns={props.columns}></ChartBase>
    ```
-   2. 차트 데이터는 data-micro-public-view/data/ 에 위치하여야 합니다.
+   2. 차트 데이터는 data-micro-public-view/data/ 에 위치하여야 합니다. 이 데이터는 게시글별 다운로드 파일로도 사용됩니다.
 5. 본문 입력
    1. 본문은 Markdown 파일 형식으로 작성해 주시면 됩니다. Ex) 온라인 마크다운 에디터( https://dillinger.io/ )
+
+6. 홈 - 다운로드 파일 업로드
+   1. [static 폴더](https://github.com/parti-coop/data-micro-public-view/tree/master/static) 의 data.zip 파일을 수정하면 다운로드 파일을 수정할 수 있습니다.

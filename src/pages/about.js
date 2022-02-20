@@ -73,7 +73,6 @@ export default function about() {
   return (
     <Layout>
       <SEO
-        image={'/main.jpg'}
         title={'한국인의 생각이란?'}
         description={
           '투명성과 공공성을 확대하여 더 신뢰할 수있는 사회를 만들기 위해 빠띠와 공공의창 공동기획으로 개발된 사이트입니다.'

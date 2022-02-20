@@ -22,6 +22,7 @@ const SEO = ({ title, description, image, slug }) => {
   //   const defaultUrl = site.siteMetadata.url
   const defaultImage = '/og-image.png'
   const metaImage = image ? image : defaultImage
+  const keywords = '한국인의생각,공공의창,빠띠,공공,공익데이터,한국,여론조사,통계'
 
   return (
     <Helmet
@@ -30,7 +31,6 @@ const SEO = ({ title, description, image, slug }) => {
       }}
       title={title}
       defaultTitle={site.siteMetadata.title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={
         [
           {
@@ -38,6 +38,10 @@ const SEO = ({ title, description, image, slug }) => {
             content:
               metaDescription ??
               '투명성과 공공성을 확대하여 더 신뢰할 수 있는 사회를 만들기 위해 공익데이터를 만듭니다'
+          },
+          {
+            name: "keywords",
+            content: keywords,
           },
           {
             property: `og:title`,
@@ -85,7 +89,7 @@ const SEO = ({ title, description, image, slug }) => {
           '투명성과 공공성을 확대하여 더 신뢰할 수 있는 사회를 만들기 위해 공익데이터를 만듭니다'
         }
       />
-      <meta name="keywords" content={`한국인의생각,공공의창,빠띠,공익데이터`} />
+      <meta name="keywords" content={keywords} />
       {/* OpenGraph tags */}
       <meta property="og:title" content={metaTitle} />
       <meta property="og:image" content={metaImage} />
@@ -95,7 +99,16 @@ const SEO = ({ title, description, image, slug }) => {
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:image" content={metaImage} />
       <meta name="twitter:description" content={metaDescription} />
-
+      <script type="application/ld+json">
+        {`
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "url": "http://www.public-view.kr",
+          "name": "공공의 창",
+        }
+      `}
+      </script>
     </Helmet>
   )
 }

@@ -69,6 +69,5 @@ module.exports = {
     contact: 'contact@parti.coop',
     url: 'public-view.kr',
     siteUrl: 'http://public-view.kr',
-
   },
 }

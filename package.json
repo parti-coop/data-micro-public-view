@@ -31,7 +31,7 @@
     "gatsby-plugin-emotion": "^6.13.0",
     "gatsby-plugin-image": "^1.12.0",
     "gatsby-plugin-mdx": "^2.13.0",
-    "gatsby-plugin-robots-txt": "^1.6.14",
+    "gatsby-plugin-robots-txt": "^1.7.0",
     "gatsby-plugin-sharp": "^3.13.0",
     "gatsby-source-filesystem": "^3.13.0",
     "gatsby-transformer-remark": "^4.10.0",

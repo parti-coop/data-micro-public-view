@@ -7,14 +7,14 @@
 module.exports = {
   /* Your site config here */
   plugins: [
-    // {
-    //   resolve: 'gatsby-plugin-robots-txt',
-    //   options: {
-    //     host: 'https://www.example.com',
-    //     sitemap: 'https://www.example.com/sitemap.xml',
-    //     policy: [{ userAgent: '*', allow: '/' }]
-    //   }
-    // },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'http://public-view.kr',
+        sitemap: 'http://public-view.kr/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
     'gatsby-transformer-remark',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
@@ -68,5 +68,7 @@ module.exports = {
     image: '/meta.png',
     contact: 'contact@parti.coop',
     url: 'public-view.kr',
+    siteUrl: 'http://public-view.kr',
+
   },
 }

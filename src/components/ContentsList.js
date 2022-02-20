@@ -50,7 +50,7 @@ export default function ContentsList({ projects, selected, tag }) {
   }
 
   return (
-    <>
+    <div className="px-6">
       <Filter tag={tag} onQueryChange={onQueryChange} />
 
       <div className="mt-8">
@@ -80,9 +80,8 @@ export default function ContentsList({ projects, selected, tag }) {
               </Link>
             ))}
           </div>
-          <p>스크롤 하시면 더 많은 컨텐츠를 확인하실 수 있습니다</p>
         </div>
       </div>
-    </>
+    </div>
   )
 }

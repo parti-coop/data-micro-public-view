@@ -23,21 +23,6 @@ const SEO = ({ title, description, image, slug }) => {
   const defaultImage = '/og-image.png'
   const metaImage = image ? image : defaultImage
 
-  const googletagmanager = `
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WM3QY4R7HF"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-WM3QY4R7HF', {
-      'linker': {
-      'domains': ['public-view.kr', 'public-view.org']
-      }
-    });
-  </script>
-  `
-
   return (
     <Helmet
       htmlAttributes={{
@@ -46,6 +31,48 @@ const SEO = ({ title, description, image, slug }) => {
       title={title}
       defaultTitle={site.siteMetadata.title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      meta={
+        [
+          {
+            name: `description`,
+            content:
+              metaDescription ??
+              '투명성과 공공성을 확대하여 더 신뢰할 수 있는 사회를 만들기 위해 공익데이터를 만듭니다'
+          },
+          {
+            property: `og:title`,
+            content: metaTitle,
+          },
+          {
+            property: `og:image`,
+            content: metaImage,
+          },
+          {
+            property: `og:description`,
+            content: metaDescription,
+          },
+          {
+            property: `twitter:card`,
+            content: 'summary_large_image',
+          },
+          {
+            property: `twitter:title`,
+            content: metaTitle,
+          },
+          {
+            property: `twitter:image`,
+            content: metaImage,
+          },
+          {
+            property: `twitter:description`,
+            content: metaDescription,
+          },
+          {
+            name: `twitter:creator`,
+            content: site.siteMetadata?.author || ``,
+          },
+        ]
+      }
     >
       {/* General tags */}
       <meta charSet="utf-8" />
@@ -69,8 +96,6 @@ const SEO = ({ title, description, image, slug }) => {
       <meta name="twitter:image" content={metaImage} />
       <meta name="twitter:description" content={metaDescription} />
 
-      <script dangerouslySetInnerHTML={{ __html: googletagmanager }} />
-      <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     </Helmet>
   )
 }

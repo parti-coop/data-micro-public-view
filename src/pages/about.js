@@ -76,7 +76,7 @@ export default function about() {
         image={'/main.jpg'}
         title={'한국인의 생각이란?'}
         description={
-          '투명성과 공공성을 확대하여 더 신뢰할 수 있는 사회를 만들기 위해 공익데이터를 만듭니다'
+          '투명성과 공공성을 확대하여 더 신뢰할 수있는 사회를 만들기 위해 빠띠와 공공의창 공동기획으로 개발된 사이트입니다.'
         }
       />
       <section className="md:max-w-content m-auto pt-6 md:pt-12 pb-24">
@@ -89,7 +89,7 @@ export default function about() {
             빠띠와 공공의창 공동기획으로 개발된 사이트입니다.
           </p>
         </section>
-        <section className="md:flex gap-7">
+        <section className="md:flex gap-7 relative">
           <div className="flex-1">
             <div className="flex justify-center items-center h-40">
               <div>
@@ -109,6 +109,13 @@ export default function about() {
               모였다. 정부나 기업 의뢰를 받지 않고 비용은 십시일반 자체 조달해
               의뢰자 없는 공공조사를 하고 있다.
             </p>
+          </div>
+          <div className="absolute mx-auto hidden md:flex w-full h-40 items-center">
+            <img
+              className="mx-auto my-0 w-ximage h-ximage"
+              src="/icons/ximage.webp"
+              alt="colaborate-icon"
+            />
           </div>
           <div className="flex-1">
             <div className="flex justify-center items-center h-40">
@@ -219,6 +226,7 @@ export default function about() {
             <div className="w-full absolute bottom-4">한국사회여론연구소</div>
           </a>
           <a className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <div className="text-2xl text-black font-bold">한국여론연구소</div>
             <div className="w-full absolute bottom-4">한국여론연구소</div>
           </a>
           <a
@@ -270,6 +278,7 @@ export default function about() {
             <div className="w-full absolute bottom-4">소상공인연구소</div>
           </a>
           <a className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center">
+            <div className="text-3xl text-black font-bold">DPI</div>
             <div className="w-full absolute bottom-4">DPI</div>
           </a>
           <a

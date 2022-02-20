@@ -15,6 +15,7 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
+    `gatsby-plugin-react-helmet`,
     'gatsby-transformer-remark',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',

@@ -29,7 +29,7 @@ exports.createPages = async ({ actions, graphql }) => {
   posts.forEach(async (node, index) => {
     createPage({
       path: `/projects/${node.frontmatter.slug}`,
-      component: path.resolve('./src/templates/project-details.js'),
+      component: path.resolve('./src/templates/project-details.jsx'),
       context: {
         slug: node.frontmatter.slug,
         prev: index == 0 ? null : posts[index - 1],
@@ -40,7 +40,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // Extract tag data from query
   const tags = data.allMdx.group
-  const tagTemplate = path.resolve('./src/templates/tags.js')
+  const tagTemplate = path.resolve('./src/templates/tags.jsx')
   // Make tag pages
   tags.forEach((tag) => {
     createPage({

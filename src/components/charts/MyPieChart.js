@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { ResponsiveContainer, Cell, PieChart, Pie } from 'recharts'
+import { ResponsiveContainer, Cell, PieChart, Pie, Legend } from 'recharts'
 import { palette } from '../../utils/colors'
 
+const MOBILE_WIDTH = 500
 const RADIAN = Math.PI / 180
 const renderCustomizedLabel = ({
   cx,
@@ -55,27 +56,31 @@ const renderCustomizedLabel = ({
   )
 }
 
-const DrawPieChart = ({ data, columns, width }) => (
-  <ResponsiveContainer width="100%" height={400}>
-    <PieChart width={730} height={400}>
-      <Pie
-        data={data}
-        nameKey={columns[0]}
-        dataKey={columns[1]}
-        cx="50%"
-        cy="50%"
-        outerRadius={(width - 100) / 2 > 200 ? 175 : (width - 100) / 2}
-        // fill={palette[0]}
-        label={renderCustomizedLabel}
-        labelLine={false}
-      >
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={palette[index % palette.length]} />
-        ))}
-      </Pie>
-    </PieChart>
-  </ResponsiveContainer>
-)
+const DrawPieChart = ({ data, columns, width }) => {
+  const isMobile = width < MOBILE_WIDTH
+  const height = isMobile ? 400 + (data.length ?? 0) * 16 : 400
+  return (
+    <ResponsiveContainer width={'100%'} height={height}>
+      <PieChart width={'100%'} height={height}>
+        <Pie
+          data={data}
+          nameKey={columns[0]}
+          dataKey={columns[1]}
+          cx="50%"
+          cy="50%"
+          outerRadius={(width - 100) / 2 > 200 ? 175 : (width - 100) / 2}
+          label={renderCustomizedLabel}
+          labelLine={false}
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={palette[index % palette.length]} />
+          ))}
+        </Pie>
+        {isMobile ? <Legend layout="vertical" verticalAlign="bottom" align="center" margin={{ top: 30 }} /> : null}
+      </PieChart>
+    </ResponsiveContainer>
+  )
+}
 
 export default function MyPieChart({ data, columns }) {
   const ref = useRef(null)

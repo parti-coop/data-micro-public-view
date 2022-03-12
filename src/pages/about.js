@@ -138,8 +138,8 @@ export default function about() {
             </p>
           </div>
         </section>
-        <h1 className="mt-16 text-xl text-coolgray800">함께하는 협력단체</h1>
-        <div className="w-full md:grid md:grid-cols-3 mt-8 border-t border-l border-r md:border-r-0 md:border-t md:border-l border-coolgray300">
+        <h1 className="mt-16 text-2xl text-coolgray800">함께하는 협력단체</h1>
+        <div className="w-full grid grid-cols-2 md:grid-cols-3 mt-8 border-t border-l border-r md:border-r-0 md:border-t md:border-l border-coolgray300">
           <a
             className="text-center h-40 border-b md:border-r md:border-b border-coolgray300 text-coolgray600 relative flex justify-center items-center"
             href="http://www.realmeter.net/"

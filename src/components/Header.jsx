@@ -43,7 +43,7 @@ export default function Header() {
         </a>
       </div>
       <div>
-        <div className='hidden md:block'>
+        <div className='hidden md:flex overflow-hidden items-end max-h-header'>
           <StaticImage
             src={'../../static/main.webp'}
             alt="공공의창 메인이미지"

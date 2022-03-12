@@ -31,6 +31,9 @@ module.exports = {
       maxWidth: {
         content: '810px',
       },
+      maxHeight: {
+        header: '488px',
+      },
       minHeight: {
         about: '384px',
       },

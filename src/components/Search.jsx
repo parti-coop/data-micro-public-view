@@ -10,18 +10,18 @@ const SearchContent = ({ onChange }) => {
   }
   return (
     <>
-      <div className="md:flex-end mt-6 mb-4 md:mt-0 md:mb-0">
+      <div className="md:flex-end mt-6 mb-4 md:mt-0 md:mb-0 flex">
         <input
           type="text"
           placeholder="검색"
           onChange={(e) => setValue(e?.target?.value)}
           onKeyPress={onKeyPress}
-          className="py-3 px-6 border border-coolgray400 rounded-lg mr-2"
+          className="py-3 px-6 border border-coolgray400 rounded-lg mr-2 text-coolgray800"
         />
         <button
           type="submit"
           onClick={() => onChange(value)}
-          className="py-3 px-6 bg-button border border-coolgray400 rounded-lg"
+          className="py-3 px-6 bg-button border border-coolgray400 rounded-lg text-sm text-coolgray800"
         >
           검색하기
         </button>

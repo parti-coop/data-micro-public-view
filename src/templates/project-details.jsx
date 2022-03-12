@@ -72,12 +72,7 @@ export default function ProjectDetails({ data, pageContext }) {
         })}
       </div>
       <div className="border-b border-coolgrey400">
-        <h2 className="text-3xl md:px-4 md:py-4">{title}</h2>
-        {/* <div className={styles.featured}>
-          <GatsbyImage
-            image={getImage(featuredImg.childImageSharp.gatsbyImageData)}
-          />
-        </div> */}
+        <h2 className="text-3xl md:px-4 pb-6 md:py-4">{title}</h2>
         <div className="md:px-4 border-coolgray600">
           <MDXProvider components={components}>
             <MDXRenderer

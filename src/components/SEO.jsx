@@ -20,7 +20,7 @@ const SEO = ({ title, description, image, slug }) => {
   const metaDescription = description || site.siteMetadata.description
   const metaTitle = title || site.siteMetadata.title
   //   const defaultUrl = site.siteMetadata.url
-  const defaultImage = '/og-image.webp'
+  const defaultImage = '/og-image.png'
   const metaImage = image ? image : defaultImage
   const keywords = '한국인의생각,공공의창,빠띠,공공,공익데이터,한국,여론조사,통계'
 

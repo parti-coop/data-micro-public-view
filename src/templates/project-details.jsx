@@ -11,6 +11,37 @@ import MyKakaoShareButton from '../components/share/MyKakaoShareButton'
 import MyFacebookShareButton from '../components/share/MyFacebookShareButton'
 import MyTwitterShareButton from '../components/share/MyTwitterShareButton'
 
+const H1 = ({ children }) => (
+  <h1 className='text-3xl md:text-4xl'>
+    {children}
+  </h1>
+)
+
+const H2 = ({ children }) => (
+  <h2 className='text-xl md:text-2xl mb-6 mt-16 font-bold'>
+    {children}
+  </h2>
+)
+
+const H3 = ({ children }) => (
+  <h3 className='text-md md:text-xl mb-4 mt-12 font-medium'>
+    {children}
+  </h3>
+)
+
+const P = ({ children }) => (
+  <h2 className='mb-6 leading-6 text-coolgray600'>
+    {children}
+  </h2>
+)
+
+const components = {
+  h1: H1,
+  h2: H2,
+  h3: H3,
+  p: P,
+}
+
 export default function ProjectDetails({ data, pageContext }) {
   const { title, summary, featuredImg, slug, tags } = data.mdx.frontmatter
   let parsedContent, columns, fileUrl
@@ -41,14 +72,9 @@ export default function ProjectDetails({ data, pageContext }) {
         })}
       </div>
       <div className="border-b border-coolgrey400">
-        <h2 className="text-3xl md:px-4 md:py-4">{title}</h2>
-        {/* <div className={styles.featured}>
-          <GatsbyImage
-            image={getImage(featuredImg.childImageSharp.gatsbyImageData)}
-          />
-        </div> */}
-        <div className="md:px-4 leading-7 border-coolgray600">
-          <MDXProvider>
+        <h2 className="text-3xl md:px-4 pb-6 md:py-4">{title}</h2>
+        <div className="md:px-4 border-coolgray600">
+          <MDXProvider components={components}>
             <MDXRenderer
               title={'My Stuff!'}
               data={parsedContent}
@@ -68,15 +94,15 @@ export default function ProjectDetails({ data, pageContext }) {
           </button>
         </a>
       </div>
-      <div className="md:flex py-4 md:py-6 md:px-4 border-b border-coolgray600">
+      <div className="md:flex py-4 md:py-6 md:px-4 border-b border-coolgray600 ">
         {prev ? (
           <Link
             to={`/projects/${prev?.frontmatter?.slug}`}
             className="md:flex-1 md:flex-start"
           >
             <div>
-              <div className="mb-3">&lt; 이전 글</div>
-              <div className="flex-1 flex-start">
+              <div className="mb-3 font-bold text-coolgray600">&lt; 이전 글</div>
+              <div className="flex-1 flex-start text-coolgray600">
                 {prev?.frontmatter?.title}
               </div>
             </div>
@@ -84,8 +110,8 @@ export default function ProjectDetails({ data, pageContext }) {
         ) : (
           <div className="md:flex-1 md:flex-start">
             <div>
-              <div className="mb-3">&lt; 이전 글</div>
-              <div className="flex-1 flex-start">없음</div>
+              <div className="mb-3 font-bold text-coolgray600">&lt; 이전 글</div>
+              <div className="flex-1 flex-start text-coolgray600">없음</div>
             </div>
           </div>
         )}
@@ -95,15 +121,15 @@ export default function ProjectDetails({ data, pageContext }) {
             className=" md:text-right"
           >
             <div className="mt-4 md:mt-0">
-              <div className="mb-3">다음 글 &gt;</div>
-              <div className="">{next?.frontmatter?.title}</div>
+              <div className="mb-3 font-bold text-coolgray600">다음 글 &gt;</div>
+              <div className="text-coolgray600">{next?.frontmatter?.title}</div>
             </div>
           </Link>
         ) : (
           <div className=" md:text-right">
             <div className="mt-4 md:mt-0">
-              <div className="mb-3">다음 글 &gt;</div>
-              <div className="">없음</div>
+              <div className="mb-3 font-bold text-coolgray600">다음 글 &gt;</div>
+              <div className="text-coolgray600">없음</div>
             </div>
           </div>
         )}

@@ -21,7 +21,7 @@ export default function Layout({ children }) {
   return (
     <div className="layout">
       <Navbar />
-      <div className="content md:p-0">{children}</div>
+      <div className="content p-4 md:p-0">{children}</div>
       <footer>
         <div className="text-coolgray500 text-center py-8 border-t border-coolgray400">
           Copyright by{' '}

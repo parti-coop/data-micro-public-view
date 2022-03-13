@@ -52,6 +52,9 @@ module.exports = {
       zIndex: {
         minus1: '-1',
       },
+      gridTemplateColumns: {
+        search: 'minmax(0, 1fr) 102px',
+      }
     },
   },
   variants: {

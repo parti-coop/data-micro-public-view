@@ -57,7 +57,7 @@ export default function Navbar() {
         </div>
       </nav>
       {open ? (
-        <div className="absolute w-full bg-white">
+        <div className="absolute w-full bg-white z-30">
           <Link
             className="block pt-7 pb-5 border-b border-coolgray400 text-center text-coolgray600"
             to="/about"

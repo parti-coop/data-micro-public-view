@@ -10,7 +10,7 @@ const SearchContent = ({ onChange }) => {
   }
   return (
     <>
-      <div className="md:flex-end mt-6 mb-4 md:mt-0 md:mb-0 flex">
+      <div className="md:flex-end mt-6 mb-4 md:mt-0 md:mb-0 grid grid-cols-search">
         <input
           type="text"
           placeholder="검색"

@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ContentsList from '../components/ContentsList'
@@ -28,17 +27,6 @@ const Tags = ({ pageContext, data }) => {
       <ContentsList tag={tag} projects={nodes} />
     </Layout>
   )
-}
-Tags.propTypes = {
-  pageContext: PropTypes.shape({
-    tag: PropTypes.string.isRequired,
-  }),
-  data: PropTypes.shape({
-    allMdx: PropTypes.shape({
-      totalCount: PropTypes.number.isRequired,
-      nodes: PropTypes.arrayOf(),
-    }),
-  }),
 }
 
 export default Tags

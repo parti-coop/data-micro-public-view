@@ -12,27 +12,19 @@ import MyFacebookShareButton from '../components/share/MyFacebookShareButton'
 import MyTwitterShareButton from '../components/share/MyTwitterShareButton'
 
 const H1 = ({ children }) => (
-  <h1 className='text-3xl md:text-4xl'>
-    {children}
-  </h1>
+  <h1 className="text-3xl md:text-4xl">{children}</h1>
 )
 
 const H2 = ({ children }) => (
-  <h2 className='text-xl md:text-2xl mb-6 mt-16 font-bold'>
-    {children}
-  </h2>
+  <h2 className="text-xl md:text-2xl mb-6 mt-16 font-bold">{children}</h2>
 )
 
 const H3 = ({ children }) => (
-  <h3 className='text-md md:text-xl mb-4 mt-12 font-medium'>
-    {children}
-  </h3>
+  <h3 className="text-md md:text-xl mb-4 mt-12 font-medium">{children}</h3>
 )
 
 const P = ({ children }) => (
-  <p className='mb-6 leading-6 text-coolgray600'>
-    {children}
-  </p>
+  <p className="mb-6 leading-6 text-coolgray600">{children}</p>
 )
 
 const components = {
@@ -102,7 +94,9 @@ export default function ProjectDetails({ data, pageContext }) {
               className="md:flex-1 md:flex-start"
             >
               <div>
-                <div className="mb-3 font-bold text-coolgray600">&lt; 이전 글</div>
+                <div className="mb-3 font-bold text-coolgray600">
+                  &lt; 이전 글
+                </div>
                 <div className="flex-1 flex-start text-coolgray600">
                   {prev?.frontmatter?.title}
                 </div>
@@ -111,7 +105,9 @@ export default function ProjectDetails({ data, pageContext }) {
           ) : (
             <div className="md:flex-1 md:flex-start">
               <div>
-                <div className="mb-3 font-bold text-coolgray600">&lt; 이전 글</div>
+                <div className="mb-3 font-bold text-coolgray600">
+                  &lt; 이전 글
+                </div>
                 <div className="flex-1 flex-start text-coolgray600">없음</div>
               </div>
             </div>
@@ -122,14 +118,20 @@ export default function ProjectDetails({ data, pageContext }) {
               className=" md:text-right"
             >
               <div className="mt-4 md:mt-0">
-                <div className="mb-3 font-bold text-coolgray600">다음 글 &gt;</div>
-                <div className="text-coolgray600">{next?.frontmatter?.title}</div>
+                <div className="mb-3 font-bold text-coolgray600">
+                  다음 글 &gt;
+                </div>
+                <div className="text-coolgray600">
+                  {next?.frontmatter?.title}
+                </div>
               </div>
             </Link>
           ) : (
             <div className=" md:text-right">
               <div className="mt-4 md:mt-0">
-                <div className="mb-3 font-bold text-coolgray600">다음 글 &gt;</div>
+                <div className="mb-3 font-bold text-coolgray600">
+                  다음 글 &gt;
+                </div>
                 <div className="text-coolgray600">없음</div>
               </div>
             </div>

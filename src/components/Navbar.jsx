@@ -3,9 +3,8 @@ import React, { useState } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 
 export default function Navbar() {
-  // 컴포넌트에서 useStaticQuery는 한 번만 쓸 수 있다.
   const data = useStaticQuery(graphql`
-    query SiteInfo3 {
+    query SiteInfo {
       site {
         siteMetadata {
           title

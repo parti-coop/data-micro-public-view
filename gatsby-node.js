@@ -76,8 +76,7 @@ function csvJSON(csv) {
     result.push(obj)
   }
 
-  return result //JavaScript object
-  // return JSON.stringify(result); //JSON
+  return result
 }
 
 async function onCreateNode({
@@ -95,30 +94,18 @@ async function onCreateNode({
 
   const content = await loadNodeContent(node)
   const parsedContent = csvJSON(content)
-  // console.log(node.name)
-  // console.log(content)
-  // console.log(parsedContent)
 
   const csvNode = {
     children: [],
     parent: node.id,
     name: node.name,
     internal: {
-      // content2: parsedContent,
       contentDigest: createContentDigest(parsedContent),
     },
   }
 
   createNode(csvNode)
   createParentChildLink({ parent: node, child: csvNode })
-
-  // parsedContent.forEach((obj, i) => {
-  //   transformObject(
-  //     obj,
-  //     obj.id ? obj.id : createNodeId(`${node.id} [${i}] >>> YAML`),
-  //     _.upperFirst(_.camelCase(`${node.name} Yaml`))
-  //   )
-  // })
 }
 
 exports.onCreateNode = onCreateNode

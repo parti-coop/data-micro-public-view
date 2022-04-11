@@ -1,49 +1,54 @@
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as styles from '../styles/projects.module.css'
 import Filter from './Filter'
 
 export default function ContentsList({ projects, selected, tag }) {
   const [query, setQuery] = useState('')
+  const [projectList, setProjectList] = useState(projects ?? [])
 
-  if (!projects) {
-    const data = useStaticQuery(graphql`
-      query ProjectList {
-        projects: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
-          nodes {
-            body
-            excerpt
-            frontmatter {
-              title
-              slug
-              date
-              summary
-              thumb {
-                childImageSharp {
-                  gatsbyImageData
-                }
+  const data = useStaticQuery(graphql`
+    query ProjectList {
+      projects: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+        nodes {
+          id
+          body
+          excerpt
+          frontmatter {
+            title
+            slug
+            date
+            summary
+            thumb {
+              childImageSharp {
+                gatsbyImageData
               }
             }
           }
         }
-        contact: site {
-          siteMetadata {
-            contact
-          }
+      }
+      contact: site {
+        siteMetadata {
+          contact
         }
       }
-    `)
+    }
+  `)
 
-    projects = data.projects.nodes
-  }
+  useEffect(() => {
+    if (!projects) {
+      setProjectList(data.projects.nodes)
+    }
 
-  if (query) {
-    console.log(query)
-    projects = projects.filter((project) => {
-      return project.frontmatter.title.includes(query)
-    })
-  }
+    if (query) {
+      setProjectList(
+        projectList.filter((project) => {
+          return project.frontmatter.title.includes(query)
+        }),
+      )
+    }
+  }, [selected, query, tag])
 
   const onQueryChange = (value) => {
     setQuery(value)
@@ -56,7 +61,7 @@ export default function ContentsList({ projects, selected, tag }) {
       <div className="mt-8">
         <div>
           <div className="w-full md:grid md:grid-cols-3 md:gap-4">
-            {projects.map((project) => (
+            {projectList?.map((project) => (
               <Link
                 to={`/projects/${project.frontmatter.slug}`}
                 key={project.id}
@@ -67,6 +72,7 @@ export default function ContentsList({ projects, selected, tag }) {
                     image={
                       project.frontmatter.thumb.childImageSharp.gatsbyImageData
                     }
+                    alt={project.frontmatter.slug}
                   />
                   <div className="p-6">
                     <h3 className="text-coolgray800 text-xl font-bold ">

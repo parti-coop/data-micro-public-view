@@ -1,4 +1,4 @@
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import Tag from './Tag'
 
@@ -18,7 +18,7 @@ export default function TagList({ selected }) {
     <div id="tags" className="md:flex-1 my-4">
       <div>
         <Tag tag={'전체'} selected={selected} />
-        {data.allMdx.group.map((tag, index) => {
+        {data?.allMdx.group.map((tag, index) => {
           return (
             <Tag key={`${tag}-${index}`} tag={tag.tag} selected={selected} />
           )

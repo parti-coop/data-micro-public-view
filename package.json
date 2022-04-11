@@ -7,7 +7,7 @@
   "author": "빠띠, 공공의창",
   "homepage": "https://publicview.kr",
   "engines": {
-    "node": ">= 14.17.5"
+    "node": ">= 16.14.0"
   },
   "keywords": [
     "gatsby",

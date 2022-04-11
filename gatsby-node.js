@@ -96,11 +96,13 @@ async function onCreateNode({
   const parsedContent = csvJSON(content)
 
   const csvNode = {
+    id: createNodeId(node.id),
     children: [],
     parent: node.id,
     name: node.name,
     internal: {
       contentDigest: createContentDigest(parsedContent),
+      type: 'MarkdownRemark',
     },
   }
 

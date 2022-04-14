@@ -48,7 +48,7 @@ export default function ContentsList({ projects, selected, tag }) {
   const onQueryChange = (value) => {
     setQuery(value)
   }
-
+  console.log(projects);
   return (
     <div className="px-6 mt-8">
       <Filter tag={tag} onQueryChange={onQueryChange} />
@@ -65,7 +65,7 @@ export default function ContentsList({ projects, selected, tag }) {
                   <GatsbyImage
                     className="rounded-lg h-60"
                     image={
-                      project.frontmatter.thumb.childImageSharp.gatsbyImageData
+                      project.frontmatter?.thumb?.childImageSharp?.gatsbyImageData || ''
                     }
                   />
                   <div className="p-6">

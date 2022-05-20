@@ -12,7 +12,7 @@ export default function about() {
           '투명성과 공공성을 확대하여 더 신뢰할 수있는 사회를 만들기 위해 빠띠와 공공의창 공동기획으로 개발된 사이트입니다.'
         }
       />
-      <section className="md:max-w-content m-auto pt-6 md:pt-12 pb-24">
+      <section className="md:max-w-content m-auto pt-6 px-6 md:pt-12 pb-24">
         <section>
           <h1 className="text-aboutHeader font-bold text-coolgray800 leading-10">
             한국인의 생각이란?

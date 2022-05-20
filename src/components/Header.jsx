@@ -1,19 +1,7 @@
-import { Link, graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
 
 export default function Header() {
-  // 컴포넌트에서 useStaticQuery는 한 번만 쓸 수 있다.
-  const data = useStaticQuery(graphql`
-    query SiteInfo2 {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-  const { title } = data.site.siteMetadata
   return (
     <header className="text-center relative md:flex md:text-left">
       <div className="absolute md:relative w-full md:block md:flex md:flex-col md:justify-center md:min-w-pcHeader md:flex-1 md:pr-24 md:mt-6 z-20 mt-8 md:mt-0">
@@ -43,14 +31,14 @@ export default function Header() {
         </a>
       </div>
       <div>
-        <div className='hidden md:flex overflow-hidden items-end max-h-header'>
+        <div className="hidden md:flex overflow-hidden items-end max-h-header">
           <StaticImage
             src={'../../static/main.webp'}
             alt="공공의창 메인이미지"
             className="w-full md:max-w-xl"
           />
         </div>
-        <div className='md:hidden'>
+        <div className="md:hidden">
           <StaticImage
             src={'../../static/main-mobile.webp'}
             alt="공공의창 메인이미지"

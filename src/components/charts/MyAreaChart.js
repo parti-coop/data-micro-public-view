@@ -12,7 +12,6 @@ import {
   Legend,
   Scatter,
   AreaChart,
-  BarChart,
   Cell,
 } from 'recharts'
 
@@ -74,10 +73,6 @@ export default function MyAreaChart({ type, data }) {
             fill="#291ab0"
             stroke="#291ab0"
           />
-          {/* <Bar dataKey="주간신문" barSize={20} fill="#413ea0" />
-          <Line type="monotone" dataKey="일간신문" stroke="#ff7300" />
-          <Scatter dataKey="인터넷신문" fill="red" />
-        <Scatter dataKey="통신" fill="green" /> */}
         </AreaChart>
       </ResponsiveContainer>
     </>
